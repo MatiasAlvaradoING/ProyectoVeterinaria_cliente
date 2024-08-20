@@ -1,0 +1,174 @@
+
+
+.circulo1::before {
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* Tamaño de la gota */
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2); /* Transparencia */
+    border-radius: 50%;
+    backdrop-filter: blur(15px); /* Efecto de distorsión */
+    z-index: 1;
+  }
+  
+  .circulo2::before {
+    content: '';
+    position: absolute;
+    top: 70%;
+    left: 60%;
+    transform: translate(110%, -50%);
+    width: 300px; /* Tamaño de la gota */
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2); /* Transparencia */
+    border-radius: 50%;
+    backdrop-filter: blur(15px); /* Efecto de distorsión */
+    z-index: 1;
+  }
+  
+  .circulo3::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    transform: translate(50%, 10%);
+    width: 300px; /* Tamaño de la gota */
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2); /* Transparencia */
+    border-radius: 50%;
+    backdrop-filter: blur(15px); /* Efecto de distorsión */
+    z-index: 1;
+  }
+  
+  .circulo4::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(0%, -110%);
+    width: 300px; /* Tamaño de la gota */
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2); /* Transparencia */
+    border-radius: 50%;
+    backdrop-filter: blur(15px); /* Efecto de distorsión */
+    z-index: 1;
+  }
+  
+  .circulo5::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    
+    transform: translate(0%, -110%);
+    width: 300px; /* Tamaño de la gota */
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2); /* Transparencia */
+    border-radius: 50%;
+    backdrop-filter: blur(15px); /* Efecto de distorsión */
+    z-index: 1;
+  }
+  
+  
+  .content {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté por encima del efecto */
+  }
+  
+
+  .container1 {
+    display: flex;
+    justify-content: space-around; /* Distribuye los divs con espacio entre ellos */
+    flex-wrap: wrap; /* Permite que los divs se ajusten en varias filas en pantallas pequeñas */
+    gap: 20px; /* Espacio entre los divs */
+    padding: 20px; /* Espacio interno del contenedor */
+    position: relative;
+    left: 5%;
+    height: 30%;
+}
+
+.responsive-div {
+    width: 30%; /* Ocupa el 30% del ancho del contenedor padre */
+    max-width: 300px; /* Ancho máximo de cada div */
+    height: auto;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.styled-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.styled-table tr:first-child td:first-child {
+    border-top-left-radius: 10px;
+}
+
+.styled-table tr:first-child td:last-child {
+    border-top-right-radius: 10px;
+}
+
+.styled-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.styled-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .container1 {
+      display: flex;
+      justify-content: space-around; /* Distribuye los divs con espacio entre ellos */
+      flex-wrap: wrap; /* Permite que los divs se ajusten en varias filas en pantallas pequeñas */
+      gap: 10px; /* Espacio entre los divs */
+      padding: 10px; /* Espacio interno del contenedor */
+      position: relative;
+      left: 5%;
+      height: 10%;
+  }
+    .responsive-div {
+        width: 45%; /* Ajusta el ancho en pantallas más pequeñas */
+        padding: 15px;
+        border-radius: 10px;
+        position: relative;
+        right: 5%;
+    }
+
+    .styled-table td {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-div {
+        width: 100%; /* Ocupa el 100% en pantallas muy pequeñas */
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .styled-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

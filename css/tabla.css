@@ -1,0 +1,118 @@
+
+.container1 {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.table {
+    width: 70%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+    position: relative;
+    left: 20%;
+}
+
+.table caption {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 8px 0px;
+}
+
+.table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    font-size: 16px;
+    padding: 8px;
+    text-align: center;
+}
+
+.table thead th{ 
+    text-transform: uppercase;
+    background-color: rgba(131, 204, 200, 0.308);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(184, 172, 172, 0.2);
+}
+
+.table tbody td:hover {
+    background-color: rgba(25, 195, 224, 0.3);
+}
+.image{
+    width: 10%;
+    position: relative;
+    left: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .image{
+        width: 20%;
+        position: relative;
+        left: 40%;
+    }
+    .table {
+        border: 0px;
+        left: 10%;
+        width: 80%;
+    }
+    .table caption {
+        font-size: 22px;
+        margin: 23px;
+    }
+    .table thead {
+        display: none;
+    }
+    .table tr {
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+    .table th, .table td {
+        font-size: 12px;
+    }
+    .table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    .table  td:last-child {
+        border-bottom: 0px;
+    }
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+
+    .rounded-shadow {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+    .circulo1{
+      display: none;
+    }
+    .circulo2{
+        display: none;
+    }
+    .circulo3{
+    display: none;
+    }
+    .circulo4{
+    display: none;
+    }
+    .circulo5{
+    display: none;
+    }
+}
+
