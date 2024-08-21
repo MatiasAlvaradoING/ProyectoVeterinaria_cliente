@@ -32,10 +32,3 @@ palanca.addEventListener("click",()=>{
     circulo.classList.toggle("prendido");
 });
 
-cloud.addEventListener("click",()=>{
-    barraLateral.classList.toggle("mini-barra-lateral");
-    main.classList.toggle("min-main");
-    spans.forEach((span)=>{
-        span.classList.toggle("oculto");
-    });
-});

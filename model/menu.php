@@ -19,6 +19,11 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="../css/styleMenuBar.css">
     <link rel="stylesheet" href="../css/tabla.css">
     <link rel="stylesheet" href="../css/disenio.css">
+    <link rel="stylesheet" href="../css/CSSmascota.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="funciones.js"></script>
 </head>
 
 <body>
@@ -61,6 +66,12 @@ $username = $_SESSION['username'];
                         <img src="../img/jeringuilla.png"  width="30" height="30" >
                         <span><?php echo ".- "?>Vacunas</span>
                     </a>
+                </li>  
+                <li>
+                    <a href="#">
+                        <img src="../img/libreta-de-contactos.png"  width="30" height="30" >
+                        <span><?php echo ".- "?>Contacto</span>
+                    </a>
                 </li>                
             </ul>
         </nav>
@@ -102,51 +113,56 @@ $username = $_SESSION['username'];
     <div class="circulo4"></div>
     <div class="circulo5"></div>
     -->
-    <div class="container">
-    <img src="../img/familia.png" class="image" >
-        <table class="table">
-            <caption class="titulo">Información Personal</caption>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
-                    <th>Correo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-label="Nombre">Matias Alvarado</td>
-                    <td data-label="Direccion">Los Marcos</td>
-                    <td data-label="Telefono">+569 45852615</td>
-                    <td data-label="Correo">mdiaz@gmail.com</td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="divMadre">
+        <div class="container">
+            <img src="../img/familia.png" class="image" >
+            <table class="table">
+                <caption class="titulo">Información Personal</caption>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Nombre">Matias Alvarado</td>
+                        <td data-label="Direccion">Los Marcos</td>
+                        <td data-label="Telefono">+569 45852615</td>
+                        <td data-label="Correo">mdiaz@gmail.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div class="container1">
+            <div class="responsive-div">
+                <table class="styled-table">
+                    <tr>
+                        <td><a href="javascript:void(0);" onclick="mostrarMascota()">MASCOTAS<br><br><img src="../img/mascota.png"  width="50" height="50" ></a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="responsive-div">
+                <table class="styled-table">
+                    <tr>
+                        <td><a href="#">ANTIPARASITARIOS<br><br><img src="../img/capsulas.png"  width="50" height="50" ></a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="responsive-div">
+                <table class="styled-table">
+                    <tr>
+                        <td><a href="#">VACUNAS <br><br><img src="../img/jeringuilla.png"  width="50" height="50" ></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-    <br>
-    <div class="container1">
-        <div class="responsive-div">
-            <table class="styled-table">
-                <tr>
-                    <td><a href="">MASCOTAS<br><br><img src="../img/mascota.png"  width="50" height="50" ></a></td>
-                </tr>
-            </table>
-        </div>
-        <div class="responsive-div">
-            <table class="styled-table">
-                <tr>
-                    <td><a href="">ANTIPARASITARIOS<br><br><img src="../img/capsulas.png"  width="50" height="50" ></a></td>
-                </tr>
-            </table>
-        </div>
-        <div class="responsive-div">
-            <table class="styled-table">
-                <tr>
-                    <td><a href="">VACUNAS <br><br><img src="../img/jeringuilla.png"  width="50" height="50" ></a></td>
-                </tr>
-            </table>
-        </div>
+    <div id="detalleMascota">
+        <!--detalle de la informacion de cada mascota -->
     </div>
     
 
