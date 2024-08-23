@@ -1,13 +1,14 @@
 .container2 {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1300px;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     box-sizing: border-box;
+    margin: 0 auto;
     position: relative;
-    left: 20%;
+    left: 5%;
 }
 
 .header {
@@ -37,10 +38,21 @@
 
 .sidebar {
     width: 30%;
+    max-height: 320px; /* Altura máxima que permite ver 3 bloques de 100px cada uno con 10px de margen */
     background-color: #f8f8f8;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #ddd;
+    overflow-y: auto; /* Habilita el scroll cuando hay más de 3 bloques */
+}
+
+.sidebar .item {
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
 }
 
 .main-content {
@@ -51,7 +63,7 @@
 }
 
 .info-box {
-    height: 100px;
+    height: 320px;
     background-color: #f8f8f8;
     border-radius: 10px;
     padding: 20px;
@@ -61,19 +73,17 @@
 
 /* Media Query para pantallas más pequeñas */
 @media (max-width: 768px) {
-    .container2{
-        position: relative;
-        left: 5%;
+    .container2 {
+        width: 100%;
+        padding: 10px;
     }
     .header {
         flex-direction: column;
         text-align: center;
     }
-
     .content {
         flex-direction: column;
     }
-
     .sidebar, .main-content {
         width: 100%;
     }
@@ -83,9 +93,20 @@
     .header .title, .header .date {
         font-size: 1rem;
     }
-
     .info-box {
         height: auto;
         padding: 15px;
+    }
+    .sidebar .item {
+        height: auto;
+        padding: 15px;
+    }
+    .sidebar {
+        max-height: 195px; /* Altura máxima que permite ver 3 bloques de 100px cada uno con 10px de margen */
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        overflow-y: auto; /* Habilita el scroll cuando hay más de 3 bloques */
     }
 }
