@@ -148,14 +148,14 @@ $username = $_SESSION['username'];
             <div class="responsive-div">
                 <table class="styled-table">
                     <tr>
-                        <td><a href="#">ANTIPARASITARIOS<br><br><img src="../img/capsulas.png"  width="50" height="50" ></a></td>
+                        <td><a href="javascript:void(0);" onclick="mostrarAnti()">ANTIPARASITARIOS<br><br><img src="../img/capsulas.png"  width="50" height="50" ></a></td>
                     </tr>
                 </table>
             </div>
             <div class="responsive-div">
                 <table class="styled-table">
                     <tr>
-                        <td><a href="#">VACUNAS <br><br><img src="../img/jeringuilla.png"  width="50" height="50" ></a></td>
+                        <td><a href="javascript:void(0);" onclick="mostrarVacuna()">VACUNAS <br><br><img src="../img/jeringuilla.png"  width="50" height="50" ></a></td>
                     </tr>
                 </table>
             </div>
@@ -163,6 +163,12 @@ $username = $_SESSION['username'];
     </div>
     <div id="detalleMascota">
         <!--detalle de la informacion de cada mascota -->
+    </div>
+    <div id="detalleAnti">
+        <!--detalle de la informacion de cada Antiparasitario -->
+    </div>
+    <div id="detalleVacuna">
+        <!--detalle de la informacion de cada Vacuna -->
     </div>
     
 
