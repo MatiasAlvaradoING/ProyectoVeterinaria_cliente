@@ -97,6 +97,17 @@ function mostrarMascota() {
 
 	
 }
+function home(){
+	setTimeout(function() {
+		$("#detalleVacuna").fadeOut(500);
+		$("#detalleMascota").fadeOut(500);
+		$("#detalleAnti").fadeOut(500);
+	},100);
+	
+	setTimeout(function() {
+		$("#divMadre").fadeIn(500);
+	},700);
+}
 
 function volverMenu(){
 	setTimeout(function() {

@@ -74,8 +74,9 @@
 /* Media Query para pantallas más pequeñas */
 @media (max-width: 768px) {
     .container2 {
-        width: 100%;
+        width: 90%;
         padding: 10px;
+        left: auto;
     }
     .header {
         flex-direction: column;

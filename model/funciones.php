@@ -1,7 +1,7 @@
 <?php
 if($accion=="mostrarMascota"){
 	?>
-    <br><br><br><br><br><br>
+    <img src="../img/familia.png" class="image" >
     <div class="container2">
         <div class="header">
             <a href="javascript:void(0);" onclick="volverMenu()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title">Detalle Mascota</span>
@@ -12,9 +12,9 @@ if($accion=="mostrarMascota"){
                 <div class="item">Bloque 1</div>
                 <div class="item">Bloque 2</div>
                 <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
+                <div class="item">Bloque 4</div>
+                <div class="item">Bloque 5</div>
+                <div class="item">Bloque 6</div>
                 <!-- Más bloques pueden ser agregados aquí -->
             </div>
             <div class="main-content">

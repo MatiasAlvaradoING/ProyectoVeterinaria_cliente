@@ -43,14 +43,14 @@ $username = $_SESSION['username'];
         <nav class="navegacion">
             <ul>
                 <li>
-                    <a id="inbox" href="#">
+                    <a id="inbox"  href="javascript:void(0);" onclick="home()">
                         <img src="../img/informacion personal.png"  width="30" height="30" >
                         <span><?php echo ".- "?>Información Personal</span>
                     </a>
                     
                 </li>   
                 <li>
-                    <a href="#">
+                    <a href="javascript:void(0);" onclick="mostrarMascota()">
                         <img src="../img/mascota.png"  width="30" height="30" >
                         <span><?php echo ".- "?>Información Mascotas</span>
                     </a>
@@ -145,6 +145,7 @@ $username = $_SESSION['username'];
                     </tr>
                 </table>
             </div>
+            <!--
             <div class="responsive-div">
                 <table class="styled-table">
                     <tr>
@@ -159,6 +160,7 @@ $username = $_SESSION['username'];
                     </tr>
                 </table>
             </div>
+            -->
         </div>
     </div>
     <div id="detalleMascota">
