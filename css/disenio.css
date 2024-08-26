@@ -100,6 +100,30 @@
     overflow-x: auto;
 }
 
+.responsive-div2 {
+    width: 30%; /* Ocupa el 30% del ancho del contenedor padre */
+    max-width: 300px; /* Ancho máximo de cada div */
+    height: auto;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-x: auto;
+    display: none;
+}
+
+.responsive-div3 {
+    width: 30%; /* Ocupa el 30% del ancho del contenedor padre */
+    max-width: 300px; /* Ancho máximo de cada div */
+    height: auto;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-x: auto;
+    display: none;
+}
+
 .styled-table {
     width: 100%;
     border-collapse: separate;
@@ -134,6 +158,8 @@
 
 .styled-table tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
+    background-color: #f2e4e4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -154,6 +180,22 @@
         position: relative;
         right: 5%;
     }
+    .responsive-div2 {
+        width: 45%; /* Ajusta el ancho en pantallas más pequeñas */
+        padding: 15px;
+        border-radius: 10px;
+        position: relative;
+        right: 5%;
+        display: block;
+    }
+    .responsive-div3 {
+        width: 45%; /* Ajusta el ancho en pantallas más pequeñas */
+        padding: 15px;
+        border-radius: 10px;
+        position: relative;
+        right: 5%;
+        display: block;
+    }
 
     .styled-table td {
         padding: 12px;
@@ -165,6 +207,19 @@
         width: 100%; /* Ocupa el 100% en pantallas muy pequeñas */
         padding: 10px;
         border-radius: 8px;
+        
+    }
+    .responsive-div2 {
+        width: 100%; /* Ocupa el 100% en pantallas muy pequeñas */
+        padding: 10px;
+        border-radius: 8px;
+        display: block;
+    }
+    .responsive-div3 {
+        width: 100%; /* Ocupa el 100% en pantallas muy pequeñas */
+        padding: 10px;
+        border-radius: 8px;
+        display: block;
     }
 
     .styled-table td {

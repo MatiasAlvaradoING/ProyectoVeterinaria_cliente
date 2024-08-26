@@ -27,6 +27,8 @@ function mostrarAnti() {
      
 	setTimeout(function() {
 		$("#divMadre").fadeOut(500);
+		$("#detalleVacuna").fadeOut(500);
+		$("#detalleMascota").fadeOut(500);
 	},100);
 
     var accion="mostrarAnti";
@@ -52,6 +54,8 @@ function mostrarVacuna() {
      
 	setTimeout(function() {
 		$("#divMadre").fadeOut(500);
+		$("#detalleAnti").fadeOut(500);
+		$("#detalleMascota").fadeOut(500);
 	},100);
 
     var accion="mostrarVacuna";
@@ -77,6 +81,8 @@ function mostrarMascota() {
      
 	setTimeout(function() {
 		$("#divMadre").fadeOut(500);
+		$("#detalleVacuna").fadeOut(500);
+		$("#detalleAnti").fadeOut(500);
 	},100);
 
     var accion="mostrarMascota";
@@ -157,4 +163,29 @@ function manejarEnter2(event) {
 		return false;
 
 	}
+}
+
+
+function detMascota() {
+	setTimeout(function() {
+		$("#detMascotaP").fadeOut(500);
+	},100);
+
+    var accion="detMascota";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detMascotaP').html(data);
+                $("#detMascotaP").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
 }

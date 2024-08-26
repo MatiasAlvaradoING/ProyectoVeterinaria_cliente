@@ -20,6 +20,7 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="../css/tabla.css">
     <link rel="stylesheet" href="../css/disenio.css">
     <link rel="stylesheet" href="../css/CSSmascota.css">
+    <link rel="stylesheet" href="../css/detalleMascota.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -56,14 +57,14 @@ $username = $_SESSION['username'];
                     </a>
                 </li>             
                 <li>
-                    <a href="#">
-                        <img src="../img/capsulas.png"  width="30" height="30" >
+                    <a href="javascript:void(0);" onclick="mostrarAnti()">
+                        <img src="../img/capsulas.png"   width="30" height="30" >
                         <span><?php echo ".- "?>Antiparasitarios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <img src="../img/jeringuilla.png"  width="30" height="30" >
+                    <a href="javascript:void(0);" onclick="mostrarVacuna()">
+                        <img src="../img/jeringa.png"  width="30" height="30" >
                         <span><?php echo ".- "?>Vacunas</span>
                     </a>
                 </li>  
@@ -145,22 +146,20 @@ $username = $_SESSION['username'];
                     </tr>
                 </table>
             </div>
-            <!--
-            <div class="responsive-div">
+            <div class="responsive-div2">
                 <table class="styled-table">
                     <tr>
                         <td><a href="javascript:void(0);" onclick="mostrarAnti()">ANTIPARASITARIOS<br><br><img src="../img/capsulas.png"  width="50" height="50" ></a></td>
                     </tr>
                 </table>
             </div>
-            <div class="responsive-div">
+            <div class="responsive-div3">
                 <table class="styled-table">
                     <tr>
-                        <td><a href="javascript:void(0);" onclick="mostrarVacuna()">VACUNAS <br><br><img src="../img/jeringuilla.png"  width="50" height="50" ></a></td>
+                        <td><a href="javascript:void(0);" onclick="mostrarVacuna()">VACUNAS <br><br><img src="../img/jeringa.png"  width="50" height="50" ></a></td>
                     </tr>
                 </table>
             </div>
-            -->
         </div>
     </div>
     <div id="detalleMascota">

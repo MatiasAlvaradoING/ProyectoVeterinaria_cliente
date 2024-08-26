@@ -9,16 +9,21 @@ if($accion=="mostrarMascota"){
         </div>
         <div class="content">
             <div class="sidebar">
-                <div class="item">Bloque 1</div>
-                <div class="item">Bloque 2</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 4</div>
-                <div class="item">Bloque 5</div>
-                <div class="item">Bloque 6</div>
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detMascota()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
+                
                 <!-- Más bloques pueden ser agregados aquí -->
             </div>
             <div class="main-content">
-                <div class="info-box"></div>
+                <div class="info-box" id="detMascotaP">
+                    <!-- informacion mascota -->
+                </div>
             </div>
         </div>
     </div>
@@ -39,7 +44,7 @@ if($accion=="mostrarMascota"){
 
 if($accion=="mostrarAnti"){
 	?>
-    <br><br><br><br><br><br>
+    <img src="../img/familia.png" class="image" >
     <div class="container2">
         <div class="header">
             <a href="javascript:void(0);" onclick="volverMenu2()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title">Detalle Antiparasitario</span>
@@ -47,16 +52,46 @@ if($accion=="mostrarAnti"){
         </div>
         <div class="content">
             <div class="sidebar">
-                <div class="item">Bloque 1</div>
-                <div class="item">Bloque 2</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detAnti()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/capsulas.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detAnti()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/capsulas.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detAnti()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/capsulas.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detAnti()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/capsulas.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
                 <!-- Más bloques pueden ser agregados aquí -->
             </div>
             <div class="main-content">
-                <div class="info-box"></div>
+                <div class="info-box" id="detAntiP">
+                    <!-- detalle de antiparasitario -->
+                     
+
+                </div>
             </div>
         </div>
     </div>
@@ -77,7 +112,7 @@ if($accion=="mostrarAnti"){
 
 if($accion=="mostrarVacuna"){
 	?>
-    <br><br><br><br><br><br>
+    <img src="../img/familia.png" class="image" >
     <div class="container2">
         <div class="header">
             <a href="javascript:void(0);" onclick="volverMenu3()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title">Detalle Vacuna</span>
@@ -85,12 +120,14 @@ if($accion=="mostrarVacuna"){
         </div>
         <div class="content">
             <div class="sidebar">
-                <div class="item">Bloque 1</div>
-                <div class="item">Bloque 2</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
-                <div class="item">Bloque 3</div>
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detVacuna()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
                 <!-- Más bloques pueden ser agregados aquí -->
             </div>
             <div class="main-content">
@@ -110,6 +147,56 @@ if($accion=="mostrarVacuna"){
         document.getElementById("Fecha").innerHTML = today;
          */
     </script>
+    <?php	
+}
+
+if($accion=="detMascota"){
+	?>
+    <div class="tabla-detalle">
+        <div class="fila">
+            <div class="columna">
+                <div class="detalle">
+                    <strong>Edad</strong><br>
+                    1 año
+                </div>
+            </div>
+            <div class="columna">
+                <div class="detalle">
+                    <strong>Raza</strong><br>
+                    mestizo 
+                </div>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="columna">
+                <div class="detalle">
+                    <strong>Sexo</strong><br>
+                    Masculino
+                </div>
+            </div>
+            <div class="columna">
+                <div class="detalle">
+                    <strong>Peso</strong><br>
+                    9.5
+                </div>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="columna">
+                <div class="detalle">
+                    <strong>Fecha de nacimiento:</strong><br>
+                    01/01/2024
+                </div>
+            </div>
+            <div class="columna">
+                <div class="detalle">
+                    <strong>Fecha de ingreso:</strong><br>
+                    01/01/2023
+                </div>
+            </div>
+        </div>
+        <!-- Agrega más filas según sea necesario -->
+    </div>
     <?php	
 }
 ?>
