@@ -29,6 +29,7 @@ function mostrarAnti() {
 		$("#divMadre").fadeOut(500);
 		$("#detalleVacuna").fadeOut(500);
 		$("#detalleMascota").fadeOut(500);
+		$("#detalleContacto").fadeOut(500);
 	},100);
 
     var accion="mostrarAnti";
@@ -56,6 +57,7 @@ function mostrarVacuna() {
 		$("#divMadre").fadeOut(500);
 		$("#detalleAnti").fadeOut(500);
 		$("#detalleMascota").fadeOut(500);
+		$("#detalleContacto").fadeOut(500);
 	},100);
 
     var accion="mostrarVacuna";
@@ -77,12 +79,41 @@ function mostrarVacuna() {
 	
 }
 
+function mostrarContacto() {
+     
+	setTimeout(function() {
+		$("#divMadre").fadeOut(500);
+		$("#detalleAnti").fadeOut(500);
+		$("#detalleMascota").fadeOut(500);
+		$("#detalleVacuna").fadeOut(500);
+	},100);
+	
+    var accion="mostrarContacto";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detalleContacto').html(data);
+                $("#detalleContacto").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+
 function mostrarMascota() {
      
 	setTimeout(function() {
 		$("#divMadre").fadeOut(500);
 		$("#detalleVacuna").fadeOut(500);
 		$("#detalleAnti").fadeOut(500);
+		$("#detalleContacto").fadeOut(500);
 	},100);
 
     var accion="mostrarMascota";
@@ -114,7 +145,15 @@ function home(){
 		$("#divMadre").fadeIn(500);
 	},700);
 }
-
+function volverMenu0(){
+	setTimeout(function() {
+		$("#detalleContacto").fadeOut(500);
+	},100);
+	
+	setTimeout(function() {
+		$("#divMadre").fadeIn(500);
+	},700);
+}
 function volverMenu(){
 	setTimeout(function() {
 		$("#detalleMascota").fadeOut(500);
@@ -181,6 +220,100 @@ function detMascota() {
             setTimeout(function() {
                 $('#detMascotaP').html(data);
                 $("#detMascotaP").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+
+function detMascotaAnti() {
+	setTimeout(function() {
+		$("#detMascotaAntiD").fadeOut(500);
+	},100);
+
+    var accion="detMascotaAnti";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detMascotaAntiD').html(data);
+                $("#detMascotaAntiD").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+function detMascotaVacuna() {
+	setTimeout(function() {
+		$("#detMascotaVacunaD").fadeOut(500);
+	},100);
+
+    var accion="detMascotaVacuna";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detMascotaVacunaD').html(data);
+                $("#detMascotaVacunaD").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+function detAnti() {
+	setTimeout(function() {
+		$("#detAntiP").fadeOut(500);
+	},100);
+
+    var accion="detAnti";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detAntiP').html(data);
+                $("#detAntiP").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+
+function detVacuna() {
+	setTimeout(function() {
+		$("#detVacunaP").fadeOut(500);
+	},100);
+
+    var accion="detVacuna";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detVacunaP').html(data);
+                $("#detVacunaP").fadeIn(500);
             },600);
         }
     });

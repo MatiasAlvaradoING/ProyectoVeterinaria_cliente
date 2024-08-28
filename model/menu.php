@@ -69,7 +69,7 @@ $username = $_SESSION['username'];
                     </a>
                 </li>  
                 <li>
-                    <a href="#">
+                    <a href="javascript:void(0);" onclick="mostrarContacto()">
                         <img src="../img/libreta-de-contactos.png"  width="30" height="30" >
                         <span><?php echo ".- "?>Contacto</span>
                     </a>
@@ -169,6 +169,9 @@ $username = $_SESSION['username'];
         <!--detalle de la informacion de cada Antiparasitario -->
     </div>
     <div id="detalleVacuna">
+        <!--detalle de la informacion de cada Vacuna -->
+    </div>
+    <div id="detalleContacto">
         <!--detalle de la informacion de cada Vacuna -->
     </div>
     
