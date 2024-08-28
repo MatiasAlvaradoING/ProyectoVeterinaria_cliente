@@ -37,6 +37,10 @@
     gap: 20px;
 }
 
+#titulo1{
+    position: relative;right: 28px;
+}
+
 .sidebar {
     width: 30%;
     max-height: 320px; /* Altura máxima que permite ver 3 bloques de 100px cada uno con 10px de margen */

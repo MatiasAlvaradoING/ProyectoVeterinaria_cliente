@@ -2,13 +2,38 @@
 if($accion=="mostrarContacto"){
 	?>
     <img src="../img/familia.png" class="image" >
-    <div class="container2">
+    <div class="container2" style="max-width: 500px;">
         <div class="header">
-            <a href="javascript:void(0);" onclick="volverMenu0()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title"></span>
+            <a href="javascript:void(0);" onclick="volverMenu0()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title" id="titulo1">CONTACTO</span>
             <span class="date" > <span id="Fecha"></span></span>
         </div>
-        <div class="header" style="height: 350px;">
-        </div>        
+        
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img  src="../img/mapa.png" alt="Address Icon" class="contact-icon">
+                    <span>1234 Calle Ejemplo, Ciudad</span>
+                </div>
+                <div class="contact-item">
+                    <img src="../img/telefono-fijo.png" alt="Phone Icon" class="contact-icon">
+                    <span>(+123) 456-7890</span>
+                </div>
+                <div class="contact-item">
+                    <img src="../img/gmail.png"  alt="Email Icon" class="contact-icon">
+                    <span>contacto@ejemplo.com</span>
+                </div>
+                <div class="contact-item">
+                    <img src="../img/whatsapp.png" alt="WhatsApp Icon" class="contact-icon">
+                    <span>(+123) 456-7890</span>
+                </div>
+                <div class="contact-item">
+                    <img src="../img/instagram.png" alt="Instagram Icon" class="contact-icon">
+                    <span>@ejemplo</span>
+                </div>
+                <div class="contact-item">
+                    <img src="../img/facebook.png" alt="Facebook Icon" class="contact-icon">
+                    <span>facebook.com/ejemplo</span>
+                </div>
+            </div>      
     </div>
     <script>
         /*
@@ -131,7 +156,7 @@ if($accion=="mostrarVacuna"){
                     <a href="javascript:void(0);" onclick="detMascotaVacuna()">
                         <div style="display: flex; align-items: center;">
                             <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
-                            <strong style="font-size: 18px;">Brabecto</strong>
+                            <strong style="font-size: 18px;">Thanos</strong>
                         </div>
                     </a>
                 </div>

@@ -21,6 +21,7 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="../css/disenio.css">
     <link rel="stylesheet" href="../css/CSSmascota.css">
     <link rel="stylesheet" href="../css/detalleMascota.css">
+    <link rel="stylesheet" href="../css/contacto.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

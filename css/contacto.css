@@ -1,0 +1,41 @@
+.contact-info {
+    background-color: #f9f9f9; /* Fondo suave */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto; /* Centrado en la página */
+    font-family: 'Arial', sans-serif;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff; /* Fondo de los items */
+    border-radius: 10px; /* Bordes redondeados para los items */
+    transition: background-color 0.3s ease;
+}
+
+.contact-item:hover {
+    background-color: #f1f1f1; /* Fondo cuando se pasa el mouse */
+}
+
+.contact-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    border-radius: 50%; /* Iconos redondeados */
+    background-color: #e0e0e0; /* Fondo de los iconos */
+    padding: 5px;
+}
+
+.contact-item span {
+    font-size: 16px;
+    color: #333; /* Color del texto */
+}
+
+.contact-item:hover span {
+    color: #007BFF; /* Cambio de color al pasar el mouse */
+}
