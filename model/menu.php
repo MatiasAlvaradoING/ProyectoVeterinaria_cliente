@@ -22,6 +22,7 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="../css/CSSmascota.css">
     <link rel="stylesheet" href="../css/detalleMascota.css">
     <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="stylesheet" href="../css/cierreSesion.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -47,32 +48,50 @@ $username = $_SESSION['username'];
                 <li>
                     <a id="inbox"  href="javascript:void(0);" onclick="home()">
                         <img src="../img/informacion personal.png"  width="30" height="30" >
-                        <span><?php echo ".- "?>Información Personal</span>
+                        <span><?php echo " .- "?>Información Personal</span>
                     </a>
                     
                 </li>   
                 <li>
                     <a href="javascript:void(0);" onclick="mostrarMascota()">
                         <img src="../img/mascota.png"  width="30" height="30" >
-                        <span><?php echo ".- "?>Información Mascotas</span>
+                        <span><?php echo " .- "?>Información Mascotas</span>
                     </a>
                 </li>             
                 <li>
                     <a href="javascript:void(0);" onclick="mostrarAnti()">
                         <img src="../img/capsulas.png"   width="30" height="30" >
-                        <span><?php echo ".- "?>Antiparasitarios</span>
+                        <span><?php echo " .- "?>Antiparasitarios</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:void(0);" onclick="mostrarVacuna()">
                         <img src="../img/jeringa.png"  width="30" height="30" >
-                        <span><?php echo ".- "?>Vacunas</span>
+                        <span><?php echo " .- "?>Vacunas</span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="javascript:void(0);" onclick="mostrarVacuna()">
+                        <img src="../img/cita.png"  width="30" height="30" >
+                        <span><?php echo " .- "?>Citas</span>
                     </a>
                 </li>  
                 <li>
+                    <a href="javascript:void(0);" onclick="mostrarVacuna()">
+                        <img src="../img/consulta.png"  width="30" height="30" >
+                        <span><?php echo " .- "?>Consultas</span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="javascript:void(0);" onclick="mostrarVacuna()">
+                        <img src="../img/ambulancia.png"  width="30" height="30" >
+                        <span><?php echo " .- "?>Emergencias</span>
+                    </a>
+                </li> 
+                <li>
                     <a href="javascript:void(0);" onclick="mostrarContacto()">
                         <img src="../img/libreta-de-contactos.png"  width="30" height="30" >
-                        <span><?php echo ".- "?>Contacto</span>
+                        <span><?php echo " .- "?>Contacto</span>
                     </a>
                 </li>                
             </ul>
