@@ -49,8 +49,6 @@ if($accion=="mostrarContacto"){
     </script>
     <?php	
 }
-
-
 if($accion=="mostrarMascota"){
 	?>
     <img src="../img/familia.png" class="image" >
@@ -93,7 +91,6 @@ if($accion=="mostrarMascota"){
     </script>
     <?php	
 }
-
 if($accion=="mostrarAnti"){
 	?>
     <img src="../img/familia.png" class="image" >
@@ -107,7 +104,7 @@ if($accion=="mostrarAnti"){
                 <div class="item">
                     <a href="javascript:void(0);" onclick="detMascotaAnti()">
                         <div style="display: flex; align-items: center;">
-                            <img src="../img/capsulas.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
                             <strong style="font-size: 18px;">Thanos</strong>
                         </div>
                     </a>
@@ -141,7 +138,6 @@ if($accion=="mostrarAnti"){
     </script>
     <?php	
 }
-
 if($accion=="mostrarVacuna"){
 	?>
     <img src="../img/familia.png" class="image" >
@@ -155,7 +151,7 @@ if($accion=="mostrarVacuna"){
                 <div class="item">
                     <a href="javascript:void(0);" onclick="detMascotaVacuna()">
                         <div style="display: flex; align-items: center;">
-                            <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
                             <strong style="font-size: 18px;">Thanos</strong>
                         </div>
                     </a>
@@ -185,6 +181,12 @@ if($accion=="mostrarVacuna"){
     </script>
     <?php	
 }
+
+
+
+
+
+
 
 if($accion=="detMascota"){
 	?>
@@ -235,7 +237,6 @@ if($accion=="detMascota"){
     </div>
     <?php	
 }
-
 if($accion=="detAnti"){
 	?>
     <div class="tabla-detalle">
@@ -267,7 +268,6 @@ if($accion=="detAnti"){
     </div>
     <?php	
 }
-
 if($accion=="detMascotaAnti"){
 	?>
     <div class="item">
@@ -304,7 +304,6 @@ if($accion=="detMascotaAnti"){
     </div>
     <?php	
 }
-
 if($accion=="detVacuna"){
 
 	?>

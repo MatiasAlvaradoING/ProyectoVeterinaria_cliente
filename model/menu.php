@@ -71,19 +71,19 @@ $username = $_SESSION['username'];
                     </a>
                 </li> 
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarVacuna()">
+                    <a href="javascript:void(0);" onclick="mostrarCita()">
                         <img src="../img/cita.png"  width="30" height="30" >
                         <span><?php echo " .- "?>Citas</span>
                     </a>
                 </li>  
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarVacuna()">
+                    <a href="javascript:void(0);" onclick="mostrarConsulta()">
                         <img src="../img/consulta.png"  width="30" height="30" >
                         <span><?php echo " .- "?>Consultas</span>
                     </a>
                 </li> 
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarVacuna()">
+                    <a href="javascript:void(0);" onclick="mostrarEmergencia()">
                         <img src="../img/ambulancia.png"  width="30" height="30" >
                         <span><?php echo " .- "?>Emergencias</span>
                     </a>
@@ -192,7 +192,16 @@ $username = $_SESSION['username'];
         <!--detalle de la informacion de cada Vacuna -->
     </div>
     <div id="detalleContacto">
-        <!--detalle de la informacion de cada Vacuna -->
+        <!--detalle de la informacion de contacto -->
+    </div>
+    <div id="detalleCita">
+        <!--detalle de la informacion de citas -->
+    </div>
+    <div id="detalleConsulta">
+        <!--detalle de la informacion de consultas -->
+    </div>
+    <div id="detalleEmergencia">
+        <!--detalle de la informacion de emergencias -->
     </div>
     
 

@@ -22,7 +22,6 @@ function mostrarMascota() {
 
 	
 }
-
 function mostrarAnti() {
      
 	setTimeout(function() {
@@ -30,6 +29,9 @@ function mostrarAnti() {
 		$("#detalleVacuna").fadeOut(500);
 		$("#detalleMascota").fadeOut(500);
 		$("#detalleContacto").fadeOut(500);
+		$("#detalleConsulta").fadeOut(500);
+		$("#detalleEmergencia").fadeOut(500);
+		$("#detalleCita").fadeOut(500);
 	},100);
 
     var accion="mostrarAnti";
@@ -50,7 +52,6 @@ function mostrarAnti() {
 
 	
 }
-
 function mostrarVacuna() {
      
 	setTimeout(function() {
@@ -58,6 +59,9 @@ function mostrarVacuna() {
 		$("#detalleAnti").fadeOut(500);
 		$("#detalleMascota").fadeOut(500);
 		$("#detalleContacto").fadeOut(500);
+		$("#detalleConsulta").fadeOut(500);
+		$("#detalleEmergencia").fadeOut(500);
+		$("#detalleCita").fadeOut(500);
 	},100);
 
     var accion="mostrarVacuna";
@@ -73,12 +77,87 @@ function mostrarVacuna() {
             },600);
         }
     });
-    
     return false;
-
-	
 }
+function mostrarCita() {    
+	setTimeout(function() {
+		$("#divMadre").fadeOut(500);
+		$("#detalleAnti").fadeOut(500);
+		$("#detalleMascota").fadeOut(500);
+		$("#detalleContacto").fadeOut(500);
+		$("#detalleConsulta").fadeOut(500);
+		$("#detalleEmergencia").fadeOut(500);
+		$("#detalleVacuna").fadeOut(500);
+		
+	},100);
 
+    var accion="mostrarCita";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detalleCita').html(data);
+                $("#detalleCita").fadeIn(500);
+            },600);
+        }
+    });
+    return false;
+}
+function mostrarConsulta() {    
+	setTimeout(function() {
+		$("#divMadre").fadeOut(500);
+		$("#detalleAnti").fadeOut(500);
+		$("#detalleMascota").fadeOut(500);
+		$("#detalleContacto").fadeOut(500);
+		$("#detalleCita").fadeOut(500);
+		$("#detalleEmergencia").fadeOut(500);
+		$("#detalleVacuna").fadeOut(500);
+	},100);
+
+    var accion="mostrarConsulta";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detalleConsulta').html(data);
+                $("#detalleConsulta").fadeIn(500);
+            },600);
+        }
+    });
+    return false;
+}
+function mostrarEmergencia() {    
+	setTimeout(function() {
+		$("#divMadre").fadeOut(500);
+		$("#detalleAnti").fadeOut(500);
+		$("#detalleMascota").fadeOut(500);
+		$("#detalleContacto").fadeOut(500);
+		$("#detalleCita").fadeOut(500);
+		$("#detalleConsulta").fadeOut(500);
+		$("#detalleVacuna").fadeOut(500);
+	},100);
+
+    var accion="mostrarEmergencia";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detalleEmergencia').html(data);
+                $("#detalleEmergencia").fadeIn(500);
+            },600);
+        }
+    });
+    return false;
+}
 function mostrarContacto() {
      
 	setTimeout(function() {
@@ -86,6 +165,9 @@ function mostrarContacto() {
 		$("#detalleAnti").fadeOut(500);
 		$("#detalleMascota").fadeOut(500);
 		$("#detalleVacuna").fadeOut(500);
+		$("#detalleConsulta").fadeOut(500);
+		$("#detalleEmergencia").fadeOut(500);
+		$("#detalleCita").fadeOut(500);
 	},100);
 	
     var accion="mostrarContacto";
@@ -106,14 +188,15 @@ function mostrarContacto() {
 
 	
 }
-
 function mostrarMascota() {
-     
 	setTimeout(function() {
 		$("#divMadre").fadeOut(500);
 		$("#detalleVacuna").fadeOut(500);
 		$("#detalleAnti").fadeOut(500);
 		$("#detalleContacto").fadeOut(500);
+		$("#detalleConsulta").fadeOut(500);
+		$("#detalleEmergencia").fadeOut(500);
+		$("#detalleCita").fadeOut(500);
 	},100);
 
     var accion="mostrarMascota";
@@ -134,11 +217,18 @@ function mostrarMascota() {
 
 	
 }
+
+
+
+
 function home(){
 	setTimeout(function() {
 		$("#detalleVacuna").fadeOut(500);
 		$("#detalleMascota").fadeOut(500);
 		$("#detalleAnti").fadeOut(500);
+		$("#detalleConsulta").fadeOut(500);
+		$("#detalleEmergencia").fadeOut(500);
+		$("#detalleCita").fadeOut(500);
 	},100);
 	
 	setTimeout(function() {
@@ -182,27 +272,8 @@ function volverMenu3(){
 	},700);
 }
 
-function manejarEnter2(event) {
-	// Verificar si la tecla presionada es "Enter" (código 13)
-	if (event.keyCode === 13) {
-		document.getElementById('segundoPopup').style.display = 'flex';
-		// obtengo el valor del input.
-		var codIngrediente = event.target.value;
-	  	var accion="cargarIngrediente";
-	  	$.ajax({
-			type: 'POST',
-			url: "funciones.php",
-			data: $('#form').serialize()+"&accion="+accion+"&codIngrediente="+codIngrediente,
-			success: function(data){
-				data=data.split("##");
-				document.getElementById('cuerpoDetalle2').innerHTML=data[0];
-			}
-		});
-		
-		return false;
 
-	}
-}
+
 
 
 function detMascota() {
@@ -228,7 +299,6 @@ function detMascota() {
 
 	
 }
-
 function detMascotaAnti() {
 	setTimeout(function() {
 		$("#detMascotaAntiD").fadeOut(500);
@@ -298,7 +368,6 @@ function detAnti() {
 
 	
 }
-
 function detVacuna() {
 	setTimeout(function() {
 		$("#detVacunaP").fadeOut(500);
