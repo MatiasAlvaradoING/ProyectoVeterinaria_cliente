@@ -271,6 +271,15 @@ function volverMenu3(){
 		$("#divMadre").fadeIn(500);
 	},700);
 }
+function volverMenu4(){
+	setTimeout(function() {
+		$("#detalleCita").fadeOut(500);
+	},100);
+	
+	setTimeout(function() {
+		$("#divMadre").fadeIn(500);
+	},700);
+}
 
 
 
@@ -383,6 +392,52 @@ function detVacuna() {
             setTimeout(function() {
                 $('#detVacunaP').html(data);
                 $("#detVacunaP").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+function detCita() {
+	setTimeout(function() {
+		$("#detCitaP").fadeOut(500);
+	},100);
+
+    var accion="detCita";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detCitaP').html(data);
+                $("#detCitaP").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+function detMascotaCitas() {
+	setTimeout(function() {
+		$("#detMascotaCitasD").fadeOut(500);
+	},100);
+
+    var accion="detMascotaCitas";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detMascotaCitasD').html(data);
+                $("#detMascotaCitasD").fadeIn(500);
             },600);
         }
     });

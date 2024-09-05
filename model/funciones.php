@@ -181,6 +181,49 @@ if($accion=="mostrarVacuna"){
     </script>
     <?php	
 }
+if($accion=="mostrarCita"){
+	?>
+    <img src="../img/familia.png" class="image" >
+    <div class="container2">
+        <div class="header">
+            <a href="javascript:void(0);" onclick="volverMenu4()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title">Detalle Citas</span>
+            <span class="date" ><span id="Fecha"></span></span>
+        </div>
+        <div class="content">
+            <div class="sidebar" >
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detMascotaCitas()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
+                <!-- Más bloques pueden ser agregados aquí -->
+            </div>
+            <div class="sidebar" id="detMascotaCitasD">
+                
+                <!-- Más bloques pueden ser agregados aquí -->
+            </div>
+            <div class="main-content">
+                <div class="info-box" id="detCitaP"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        /*
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = dd + '/' + mm + '/' + yyyy;
+        console.log(today);
+        document.getElementById("Fecha").innerHTML = today;
+         */
+    </script>
+    <?php	
+}
 
 
 
@@ -361,6 +404,50 @@ if($accion=="detMascotaVacuna"){
                 <strong style="font-size: 18px;">Brabecto</strong>
             </div>
         </a>
+    </div>
+    <?php	
+}
+if($accion=="detMascotaCitas"){
+	?>
+    <div class="item">
+        <a href="javascript:void(0);" onclick="detCita()">
+            <div style="display: flex; align-items: center;">
+                <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                <strong style="font-size: 18px;">Resfriado Comun</strong>
+            </div>
+        </a>
+    </div>
+    <div class="item">
+        <a href="javascript:void(0);" onclick="detCita()">
+            <div style="display: flex; align-items: center;">
+                <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                <strong style="font-size: 18px;">Dolor abdominal</strong>
+            </div>
+        </a>
+    </div>
+    <div class="item">
+        <a href="javascript:void(0);" onclick="detCita()">
+            <div style="display: flex; align-items: center;">
+                <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                <strong style="font-size: 18px;">Conjuntivitis</strong>
+            </div>
+        </a>
+    </div>
+    <?php	
+}
+if($accion=="detCita"){
+
+	?>
+    <div class="tabla-detalle">
+        <div class="fila">
+            <div class="columna">
+                <div class="detalle">
+                    <strong>Resfriado Comun</strong><br>
+                    Perro se presente con sintomas de resfriado
+                </div>
+            </div>
+        </div>
+        <!-- Agrega más filas según sea necesario -->
     </div>
     <?php	
 }
