@@ -224,8 +224,92 @@ if($accion=="mostrarCita"){
     </script>
     <?php	
 }
+if($accion=="mostrarConsulta"){
+	?>
+    <img src="../img/familia.png" class="image" >
+    <div class="container2">
+        <div class="header">
+            <a href="javascript:void(0);" onclick="volverMenu5()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title">Detalle Consultas</span>
+            <span class="date" ><span id="Fecha"></span></span>
+        </div>
+        <div class="content">
+            <div class="sidebar" >
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detMascotaConsulta()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
+                <!-- Más bloques pueden ser agregados aquí -->
+            </div>
+            <div class="sidebar" id="detMascotaConsultaD">
+                
+                <!-- Más bloques pueden ser agregados aquí -->
+            </div>
+            <div class="main-content">
+                <div class="info-box" id="detConsultaP"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        /*
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
 
+        today = dd + '/' + mm + '/' + yyyy;
+        console.log(today);
+        document.getElementById("Fecha").innerHTML = today;
+         */
+    </script>
+    <?php	
+}
+if($accion=="mostrarEmergencia"){
+	?>
+    <img src="../img/familia.png" class="image" >
+    <div class="container2">
+        <div class="header">
+            <a href="javascript:void(0);" onclick="volverMenu6()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title">Detalle Emergencia</span>
+            <span class="date" ><span id="Fecha"></span></span>
+        </div>
+        <div class="content">
+            <div class="sidebar" >
+                <div class="item">
+                    <a href="javascript:void(0);" onclick="detMascotaEmergencia()">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                            <strong style="font-size: 18px;">Thanos</strong>
+                        </div>
+                    </a>
+                </div>
+                <!-- Más bloques pueden ser agregados aquí -->
+            </div>
+            <div class="sidebar" id="detMascotaEmergenciaD">
+                
+                <!-- Más bloques pueden ser agregados aquí -->
+            </div>
+            <div class="main-content">
+                <div class="info-box" id="detEmergenciaP"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        /*
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
 
+        today = dd + '/' + mm + '/' + yyyy;
+        console.log(today);
+        document.getElementById("Fecha").innerHTML = today;
+         */
+    </script>
+    <?php	
+}
 
 
 
@@ -280,6 +364,7 @@ if($accion=="detMascota"){
     </div>
     <?php	
 }
+
 if($accion=="detAnti"){
 	?>
     <div class="tabla-detalle">
@@ -347,6 +432,7 @@ if($accion=="detMascotaAnti"){
     </div>
     <?php	
 }
+
 if($accion=="detVacuna"){
 
 	?>
@@ -407,6 +493,23 @@ if($accion=="detMascotaVacuna"){
     </div>
     <?php	
 }
+
+if($accion=="detCita"){
+
+	?>
+    <div class="tabla-detalle">
+        <div class="fila">
+            <div class="columna">
+                <div class="detalle">
+                    <strong>Resfriado Comun</strong><br>
+                    Perro se presente con sintomas de resfriado
+                </div>
+            </div>
+        </div>
+        <!-- Agrega más filas según sea necesario -->
+    </div>
+    <?php	
+}
 if($accion=="detMascotaCitas"){
 	?>
     <div class="item">
@@ -435,19 +538,163 @@ if($accion=="detMascotaCitas"){
     </div>
     <?php	
 }
-if($accion=="detCita"){
+
+if($accion=="detConsulta"){
 
 	?>
     <div class="tabla-detalle">
         <div class="fila">
             <div class="columna">
-                <div class="detalle">
-                    <strong>Resfriado Comun</strong><br>
-                    Perro se presente con sintomas de resfriado
-                </div>
+                <a href="javascript:void(0);" onclick="mostrarPopUpDetConsulta()">
+                    <div class="detalle">
+                        <strong>Consulta 1</strong><br>
+                        Pastillas para pulgas
+                    </div>
+                </a>
             </div>
         </div>
         <!-- Agrega más filas según sea necesario -->
+    </div>
+    <!-- Contenedor del popup -->
+    <div id="popupConsulta" class="popup" style="Display: none;">
+        <div class="popup-content">
+            <div class="popup-info">
+                <div class="info-item">
+                    <strong>Edad</strong>
+                    <p>1 año</p>
+                </div>
+                <div class="info-item">
+                    <strong>Raza</strong>
+                    <p>mestizo</p>
+                </div>
+                <div class="info-item">
+                    <strong>Sexo</strong>
+                    <p>Masculino</p>
+                </div>
+                <div class="info-item">
+                    <strong>Peso</strong>
+                    <p>9.5</p>
+                </div>
+                <div class="info-item">
+                    <strong>Fecha de nacimiento</strong>
+                    <p>01/01/2024</p>
+                </div>
+                <div class="info-item">
+                    <strong>Fecha de ingreso</strong>
+                    <p>01/01/2023</p>
+                </div>
+            </div>
+            <button onclick="cerrarPopup()">Cerrar</button>
+        </div>
+    </div>
+    <script>
+        function mostrarPopUpDetConsulta() {
+            document.getElementById("popupConsulta").style.display = "flex";
+        }
+
+        function cerrarPopup() {
+            document.getElementById("popupConsulta").style.display = "none";
+        }
+    </script>
+    <?php	
+}
+if($accion=="detMascotaConsulta"){
+	?>
+    <div class="item">
+        <a href="javascript:void(0);" onclick="detConsulta()">
+            <div style="display: flex; align-items: center;">
+                <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                <strong style="font-size: 18px;">Consulta 1</strong>
+            </div>
+        </a>
+    </div>
+    <div class="item">
+        <a href="javascript:void(0);" onclick="detConsulta()">
+            <div style="display: flex; align-items: center;">
+                <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                <strong style="font-size: 18px;">Consulta 2</strong>
+            </div>
+        </a>
+    </div>
+    <?php	
+}
+
+if($accion=="detEmergencia"){
+
+	?>
+    <div class="tabla-detalle">
+        <div class="fila">
+            <div class="columna">
+                <a href="javascript:void(0);" onclick="mostrarPopUpDetEmergencia()">
+                    <div class="detalle">
+                        <strong>Emergencia 1</strong><br>
+                        Atropello
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Agrega más filas según sea necesario -->
+    </div>
+    <!-- Contenedor del popup -->
+    <div id="popupEmergencia" class="popup1" style="Display: none;">
+        <div class="popup1-content">
+            <div class="popup1-info">
+                <div class="info1-item">
+                    <strong>Edad</strong>
+                    <p>1 año</p>
+                </div>
+                <div class="info1-item">
+                    <strong>Raza</strong>
+                    <p>mestizo</p>
+                </div>
+                <div class="info1-item">
+                    <strong>Sexo</strong>
+                    <p>Masculino</p>
+                </div>
+                <div class="info1-item">
+                    <strong>Peso</strong>
+                    <p>9.5</p>
+                </div>
+                <div class="info1-item">
+                    <strong>Fecha de nacimiento</strong>
+                    <p>01/01/2024</p>
+                </div>
+                <div class="info1-item">
+                    <strong>Fecha de ingreso</strong>
+                    <p>01/01/2023</p>
+                </div>
+            </div>
+            <button onclick="cerrarPopup1()">Cerrar</button>
+        </div>
+    </div>
+    <script>
+        function mostrarPopUpDetEmergencia() {
+            document.getElementById("popupEmergencia").style.display = "flex";
+        }
+
+        function cerrarPopup1() {
+            document.getElementById("popupEmergencia").style.display = "none";
+        }
+    </script>
+    <?php	
+}
+if($accion=="detMascotaEmergencia"){
+	?>
+    <div class="item">
+        <a href="javascript:void(0);" onclick="detEmergencia()">
+            <div style="display: flex; align-items: center;">
+                <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                <strong style="font-size: 18px;">Emergencia 1</strong>
+            </div>
+        </a>
+    </div>
+    <div class="item">
+        <a href="javascript:void(0);" onclick="detEmergencia()">
+            <div style="display: flex; align-items: center;">
+                <img src="../img/jeringa.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                <strong style="font-size: 18px;">Emergencia 2</strong>
+            </div>
+        </a>
     </div>
     <?php	
 }

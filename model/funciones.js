@@ -280,6 +280,24 @@ function volverMenu4(){
 		$("#divMadre").fadeIn(500);
 	},700);
 }
+function volverMenu5(){
+	setTimeout(function() {
+		$("#detalleConsulta").fadeOut(500);
+	},100);
+	
+	setTimeout(function() {
+		$("#divMadre").fadeIn(500);
+	},700);
+}
+function volverMenu6(){
+	setTimeout(function() {
+		$("#detalleEmergencia").fadeOut(500);
+	},100);
+	
+	setTimeout(function() {
+		$("#divMadre").fadeIn(500);
+	},700);
+}
 
 
 
@@ -308,6 +326,7 @@ function detMascota() {
 
 	
 }
+
 function detMascotaAnti() {
 	setTimeout(function() {
 		$("#detMascotaAntiD").fadeOut(500);
@@ -323,29 +342,6 @@ function detMascotaAnti() {
             setTimeout(function() {
                 $('#detMascotaAntiD').html(data);
                 $("#detMascotaAntiD").fadeIn(500);
-            },600);
-        }
-    });
-    
-    return false;
-
-	
-}
-function detMascotaVacuna() {
-	setTimeout(function() {
-		$("#detMascotaVacunaD").fadeOut(500);
-	},100);
-
-    var accion="detMascotaVacuna";
-    $.ajax({
-        type: 'POST',
-        url: "funciones.php",
-        data: $('#form').serialize()+"&accion="+accion,
-        success: function(data){
-            //data=data.split("#");
-            setTimeout(function() {
-                $('#detMascotaVacunaD').html(data);
-                $("#detMascotaVacunaD").fadeIn(500);
             },600);
         }
     });
@@ -377,6 +373,30 @@ function detAnti() {
 
 	
 }
+
+function detMascotaVacuna() {
+	setTimeout(function() {
+		$("#detMascotaVacunaD").fadeOut(500);
+	},100);
+
+    var accion="detMascotaVacuna";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detMascotaVacunaD').html(data);
+                $("#detMascotaVacunaD").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
 function detVacuna() {
 	setTimeout(function() {
 		$("#detVacunaP").fadeOut(500);
@@ -392,6 +412,30 @@ function detVacuna() {
             setTimeout(function() {
                 $('#detVacunaP').html(data);
                 $("#detVacunaP").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+
+function detMascotaCitas() {
+	setTimeout(function() {
+		$("#detMascotaCitasD").fadeOut(500);
+	},100);
+
+    var accion="detMascotaCitas";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detMascotaCitasD').html(data);
+                $("#detMascotaCitasD").fadeIn(500);
             },600);
         }
     });
@@ -423,12 +467,13 @@ function detCita() {
 
 	
 }
-function detMascotaCitas() {
+
+function detMascotaConsulta() {
 	setTimeout(function() {
-		$("#detMascotaCitasD").fadeOut(500);
+		$("#detMascotaConsultaD").fadeOut(500);
 	},100);
 
-    var accion="detMascotaCitas";
+    var accion="detMascotaConsulta";
     $.ajax({
         type: 'POST',
         url: "funciones.php",
@@ -436,8 +481,78 @@ function detMascotaCitas() {
         success: function(data){
             //data=data.split("#");
             setTimeout(function() {
-                $('#detMascotaCitasD').html(data);
-                $("#detMascotaCitasD").fadeIn(500);
+                $('#detMascotaConsultaD').html(data);
+                $("#detMascotaConsultaD").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+function detConsulta() {
+	setTimeout(function() {
+		$("#detConsultaP").fadeOut(500);
+	},100);
+
+    var accion="detConsulta";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detConsultaP').html(data);
+                $("#detConsultaP").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+
+function detMascotaEmergencia() {
+	setTimeout(function() {
+		$("#detMascotaEmergenciaD").fadeOut(500);
+	},100);
+
+    var accion="detMascotaEmergencia";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detMascotaEmergenciaD').html(data);
+                $("#detMascotaEmergenciaD").fadeIn(500);
+            },600);
+        }
+    });
+    
+    return false;
+
+	
+}
+function detEmergencia() {
+	setTimeout(function() {
+		$("#detEmergenciaP").fadeOut(500);
+	},100);
+
+    var accion="detEmergencia";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion,
+        success: function(data){
+            //data=data.split("#");
+            setTimeout(function() {
+                $('#detEmergenciaP').html(data);
+                $("#detEmergenciaP").fadeIn(500);
             },600);
         }
     });
