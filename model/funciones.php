@@ -7,33 +7,80 @@ if($accion=="mostrarContacto"){
             <a href="javascript:void(0);" onclick="volverMenu0()"><img src="../img/volver.png" width="50" height="50" /></a><span class="title" id="titulo1">CONTACTO</span>
             <span class="date" > <span id="Fecha"></span></span>
         </div>
-        
-            <div class="contact-info">
-                <div class="contact-item">
-                    <img  src="../img/mapa.png" alt="Address Icon" class="contact-icon">
-                    <span>1234 Calle Ejemplo, Ciudad</span>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img  src="../img/mapa.png" alt="Address Icon" class="contact-icon">
+                <span>1234 Calle Ejemplo, Ciudad</span>
+            </div>
+            <div class="contact-item">
+                <img src="../img/telefono-fijo.png" alt="Phone Icon" class="contact-icon">
+                <span>(+123) 456-7890</span>
+            </div>
+            <div class="contact-item">
+                <img src="../img/gmail.png"  alt="Email Icon" class="contact-icon">
+                <span>contacto@ejemplo.com</span>
+            </div>
+            <div class="contact-item">
+                <img src="../img/whatsapp.png" alt="WhatsApp Icon" class="contact-icon">
+                <span>(+123) 456-7890</span>
+            </div>
+            <div class="contact-item">
+                <img src="../img/instagram.png" alt="Instagram Icon" class="contact-icon">
+                <span>@ejemplo</span>
+            </div>
+            <div class="contact-item">
+                <img src="../img/facebook.png" alt="Facebook Icon" class="contact-icon">
+                <span>facebook.com/ejemplo</span>
+            </div>
+                <a href="javascript:void(0);" onclick="mostrarPopUpPrecio()" >
+                    <div class="card precios" style="background-color:  #d6eaff;">
+                        <img src="../img/signo-de-dolar.png" alt="Facebook Icon" class="contact-icon">
+                        <span>Precios</span>
+                    </div>
+                </a>       
+        </div>    
+        <!-- Contenedor del popup -->
+        <div id="popupPrecio" class="popup2" style="Display: none;">
+            <div class="popup2-content">
+                <div class="popup2-info">
+                    <div class="info2-item">
+                        <strong>Consultas</strong>
+                        <p>De Lunes a Sabado 10.000</p>
+                        <p>Domigos y festivos 15.000</p>
+                    </div>
+                    <div class="info2-item">
+                        <strong>Cortes de pelo</strong>
+                        <p>10.000 Como minimo</p>
+                    </div>
+                    <div class="info2-item">
+                        <strong>Desparacitaciones</strong>
+                        <p>6.000</p>
+                    </div>
+                    <div class="info2-item">
+                        <strong>Vacunas</strong>
+                        <p>15.000</p>
+                    </div>
+                    <div class="info2-item">
+                        <strong>Citas</strong>
+                        <p>5.000</p>
+                    </div>
+                    <div class="info2-item">
+                        <strong>Emergencia Domiciliar</strong>
+                        <p>20.000</p>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <img src="../img/telefono-fijo.png" alt="Phone Icon" class="contact-icon">
-                    <span>(+123) 456-7890</span>
-                </div>
-                <div class="contact-item">
-                    <img src="../img/gmail.png"  alt="Email Icon" class="contact-icon">
-                    <span>contacto@ejemplo.com</span>
-                </div>
-                <div class="contact-item">
-                    <img src="../img/whatsapp.png" alt="WhatsApp Icon" class="contact-icon">
-                    <span>(+123) 456-7890</span>
-                </div>
-                <div class="contact-item">
-                    <img src="../img/instagram.png" alt="Instagram Icon" class="contact-icon">
-                    <span>@ejemplo</span>
-                </div>
-                <div class="contact-item">
-                    <img src="../img/facebook.png" alt="Facebook Icon" class="contact-icon">
-                    <span>facebook.com/ejemplo</span>
-                </div>
-            </div>      
+                <button onclick="cerrarPopup2()">Cerrar</button>
+            </div>
+        </div>
+        <script>
+            function mostrarPopUpPrecio() {
+                document.getElementById("popupPrecio").style.display = "flex";
+            }
+
+            function cerrarPopup2() {
+                document.getElementById("popupPrecio").style.display = "none";
+            }
+        </script>  
     </div>
     <script>
         /*

@@ -25,6 +25,7 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="../css/cierreSesion.css">
     <link rel="stylesheet" href="../css/popUpDetConsulta.css">
     <link rel="stylesheet" href="../css/popUpDetEmergencia.css">
+    <link rel="stylesheet" href="../css/popUpPrecio.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
