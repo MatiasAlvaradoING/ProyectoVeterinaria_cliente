@@ -218,8 +218,9 @@ $username = $_SESSION['username'];
                             <div class="popup-container" onclick="event.stopPropagation()">
                                 <h2>Crear Cliente</h2>
                                 <form>
+                                    <input type="text" id="rut" class="popup-input" placeholder="rut" required>
                                     <input type="text" id="nombre" class="popup-input" placeholder="Nombre" required>
-                                    <input type="email" id="gmail" class="popup-input" placeholder="Correo" required>
+                                    <input type="text" id="gmail" class="popup-input" placeholder="Correo">
                                     <input type="text" id="direccion" class="popup-input" placeholder="Dirección" required>
                                     <input type="text" id="telefono" class="popup-input" placeholder="Teléfono" required>
                                     <input type="text" id="user" class="popup-input" placeholder="Usuario" required>
@@ -228,7 +229,7 @@ $username = $_SESSION['username'];
                                         <option value="V">Cliente</option>
                                         <option value="T">Veterinario</option>
                                     </select>
-                                    
+
                                     <button type="submit" class="popup-button-save" onclick="guardarInfoCli()">Guardar</button>
                                 </form>
                                 <button class="popup-button-close" onclick="cerrarPopup()">Cancelar</button>

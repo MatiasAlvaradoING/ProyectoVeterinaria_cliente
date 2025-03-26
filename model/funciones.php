@@ -749,8 +749,9 @@ if($accion=="detMascotaEmergencia"){
 
 // insert, update y delete.
 
-if($accion=="guardarInfoCli"){
-	
+if (isset($_POST['accion']) && $_POST['accion'] == "guardarInfoCli") {
+    
+    $rut = $_POST['rut'];
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
     $telefono = $_POST['telefono'];
@@ -758,11 +759,29 @@ if($accion=="guardarInfoCli"){
     $correo = $_POST['correo'];
     $nombre = $_POST['nombre'];
     $tipoUsuario = $_POST['tipoUsuario'];
+
     include("conexion.php");
 
-    $update1 = "INSERT INTO USUARIO (RUT, NOMBRE, DIRECCION, TELEFONO, CORREO, USUARIO, CONTRASEÑA, TIPO_ACCESO)
-            VALUES ('"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$tipoUsuario+"'),";
+    // Preparar la consulta SQL con parámetros
+    $sql = "INSERT INTO USUARIO (RUT, NOMBRE, DIRECCION, TELEFONO, CORREO, USUARIO, CLAVE, TIPO_ACCESO)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
+    // Usamos prepared statements para mayor seguridad
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->bind_param("ssssssss", $rut, $nombre, $direccion, $telefono, $correo, $usuario, $contrasena, $tipoUsuario);
+        
+        if ($stmt->execute()) {
+            echo "1"; // Éxito
+        } else {
+            echo "2"; // Error en la ejecución
+        }
 
+        $stmt->close();
+    } else {
+        echo "2"; // Error en la preparación de la consulta
+    }
+
+    $conn->close();
 }
+
 ?>

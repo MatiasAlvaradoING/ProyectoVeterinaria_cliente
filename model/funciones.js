@@ -567,6 +567,7 @@ function detEmergencia() {
 
 function guardarInfoCli() {
 
+    let rut = document.getElementById("rut").value;
     let nombre = document.getElementById("nombre").value;
     let correo = document.getElementById("gmail").value;
     let direccion = document.getElementById("direccion").value;
@@ -597,7 +598,8 @@ function guardarInfoCli() {
                                     "&telefono="+telefono+
                                     "&usuario="+usuario+
                                     "&contrasena="+contrasena+
-                                    "&tipoUsuario="+tipoUsuario,
+                                    "&tipoUsuario="+tipoUsuario+
+                                    "&rut="+rut,
         success: function(data){
             //data=data.split("#");
             $('#resuldIngreso').html(data);
