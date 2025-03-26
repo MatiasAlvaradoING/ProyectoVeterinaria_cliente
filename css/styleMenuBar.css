@@ -276,7 +276,11 @@ body{
 .barra-lateral .usuario ion-icon{
     font-size: 20px;
 }
-
+.title-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 200px;
+}
 
 /*-------------main*/
 
@@ -304,6 +308,8 @@ main.min-main{
     .barra-lateral .modo-oscuro{
         margin-bottom: 3px;
     }
+    
+    
 }
 @media (max-width: 600px){
     .barra-lateral{
@@ -313,6 +319,9 @@ main.min-main{
     .max-barra-lateral{
         left: 0;
         
+    }
+    .title-container {
+        margin-left: 3%;
     }
     .menu{
         display: flex;

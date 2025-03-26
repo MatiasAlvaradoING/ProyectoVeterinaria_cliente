@@ -561,3 +561,50 @@ function detEmergencia() {
 
 	
 }
+
+
+
+
+function guardarInfoCli() {
+
+    let nombre = document.getElementById("nombre").value;
+    let correo = document.getElementById("gmail").value;
+    let direccion = document.getElementById("direccion").value;
+    let telefono = document.getElementById("telefono").value;
+    let usuario = document.getElementById("user").value;
+    let contrasena = document.getElementById("clave").value;
+    let tipoUsuario = document.getElementById("tipoUsuario").value; // Rescatar el valor (T o V)
+
+    /*
+    console.log("Datos del Cliente:");
+    console.log("Nombre:", nombre);
+    console.log("Correo:", correo);
+    console.log("Dirección:", direccion);
+    console.log("Teléfono:", telefono);
+    console.log("Usuario:", usuario);
+    console.log("Contraseña:", contrasena);
+    console.log("Tipo de Usuario:", tipoUsuario === "T" ? "Veterinario" : "Cliente");
+    */
+
+    var accion="guardarInfoCli";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion+
+                                    "&nombre="+nombre+
+                                    "&correo="+correo+
+                                    "&direccion="+direccion+
+                                    "&telefono="+telefono+
+                                    "&usuario="+usuario+
+                                    "&contrasena="+contrasena+
+                                    "&tipoUsuario="+tipoUsuario,
+        success: function(data){
+            //data=data.split("#");
+            $('#resuldIngreso').html(data);
+        }
+    });
+    
+    return false;
+    	
+}
+

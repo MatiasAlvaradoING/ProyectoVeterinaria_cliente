@@ -745,4 +745,24 @@ if($accion=="detMascotaEmergencia"){
     </div>
     <?php	
 }
+
+
+// insert, update y delete.
+
+if($accion=="guardarInfoCli"){
+	
+    $usuario = $_POST['usuario'];
+    $contrasena = $_POST['contrasena'];
+    $telefono = $_POST['telefono'];
+    $direccion = $_POST['direccion'];
+    $correo = $_POST['correo'];
+    $nombre = $_POST['nombre'];
+    $tipoUsuario = $_POST['tipoUsuario'];
+    include("conexion.php");
+
+    $update1 = "INSERT INTO USUARIO (RUT, NOMBRE, DIRECCION, TELEFONO, CORREO, USUARIO, CONTRASEÑA, TIPO_ACCESO)
+            VALUES ('"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$usuario+"', '"+$tipoUsuario+"'),";
+
+
+}
 ?>
