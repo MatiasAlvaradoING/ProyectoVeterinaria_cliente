@@ -749,7 +749,7 @@ if($accion=="detMascotaEmergencia"){
 
 // insert, update y delete.
 
-if (isset($_POST['accion']) && $_POST['accion'] == "guardarInfoCli") {
+if ($accion == "guardarInfoCli") {
     
     $rut = $_POST['rut'];
     $usuario = $_POST['usuario'];
@@ -761,27 +761,15 @@ if (isset($_POST['accion']) && $_POST['accion'] == "guardarInfoCli") {
     $tipoUsuario = $_POST['tipoUsuario'];
 
     include("conexion.php");
+    $insE="INSERT INTO USUARIO (RUT, NOMBRE, DIRECCION, TELEFONO, CORREO, USUARIO, CLAVE, TIPO_ACCESO) VALUES ('$rut','$nombre','$direccion','$telefono','$correo','$usuario','$contrasena','$tipoUsuario')";
+    $resinsE=odbc_exec($cid,$insE);
 
-    // Preparar la consulta SQL con parámetros
-    $sql = "INSERT INTO USUARIO (RUT, NOMBRE, DIRECCION, TELEFONO, CORREO, USUARIO, CLAVE, TIPO_ACCESO)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-    // Usamos prepared statements para mayor seguridad
-    if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("ssssssss", $rut, $nombre, $direccion, $telefono, $correo, $usuario, $contrasena, $tipoUsuario);
-        
-        if ($stmt->execute()) {
-            echo "1"; // Éxito
-        } else {
-            echo "2"; // Error en la ejecución
-        }
-
-        $stmt->close();
+    if ($resinsE) {
+        echo "1";  // Inserción exitosa
     } else {
-        echo "2"; // Error en la preparación de la consulta
+        echo "2";  // Error en la inserción
     }
 
-    $conn->close();
 }
 
 ?>

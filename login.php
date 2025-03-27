@@ -1,22 +1,36 @@
 <?php
 session_start();
+include("model/conexion.php"); // Incluir la conexión
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Validar usuario y contraseña
-    if ($username == "diazm" && $password == "123456") {
-        // Iniciar sesión y almacenar el nombre de usuario
-        $_SESSION['username'] = $username;
+    // Query para validar usuario
+    $sql = "SELECT * FROM USUARIO WHERE RUT = ? AND CLAVE = ?";
+    $stmt = odbc_prepare($cid, $sql);
+    $params = array($username, $password);
 
-        // Redirigir a menu.php
-        header("Location: model/menu.php");
-        exit();
+    
+    if (odbc_execute($stmt, $params)) {
+        if ($row = odbc_fetch_array($stmt)) {
+            // Usuario encontrado, iniciar sesión
+            $_SESSION['username'] = $row['RUT']; // Guardar RUT en sesión
+            $_SESSION['nick'] = $row['USUARIO']; // Guardar NICK en sesión
+            $_SESSION['tipo_acceso'] = $row['TIPO_ACCESO']; // Guardar tipo de acceso
+            $_SESSION['nombre'] = $row['NOMBRE']; // Guardar NOMBRE de acceso
+
+            // Redirigir al menú
+            header("Location: model/menu.php");
+            exit();
+        } else {
+            // Usuario o clave incorrectos
+            echo "<script>alert('Usuario o contraseña incorrectos');</script>";
+            echo "<script>window.location.href = 'index.php';</script>";
+        }
     } else {
-        // En caso de error, redirigir de nuevo al login
-        echo "<script>alert('Usuario o contraseña incorrectos');</script>";
-        echo "<script>window.location.href = 'login.php';</script>";
+        echo "<script>alert('Error en la consulta');</script>";
+        echo "<script>window.location.href = 'index.php';</script>";
     }
 }
 ?>

@@ -576,6 +576,19 @@ function guardarInfoCli() {
     let contrasena = document.getElementById("clave").value;
     let tipoUsuario = document.getElementById("tipoUsuario").value; // Rescatar el valor (T o V)
 
+    if (rut === "" || nombre === "" || correo === "" || direccion === "" ||
+        telefono === "" || usuario === "" || contrasena === "" || tipoUsuario === "") {
+        alert("Por favor, complete todos los campos antes de continuar.");
+        return false;
+    }
+
+    // validacion de numero de telefono, no ingresar mas o menos de 9 numeros
+    let telefonoRegex = /^[0-9]{9,9}$/;
+    if (!telefonoRegex.test(telefono)) {
+        alert("El teléfono ingresado no es válido. Debe contener 9 numeros.");
+        return false;
+    }
+
     /*
     console.log("Datos del Cliente:");
     console.log("Nombre:", nombre);
@@ -603,6 +616,13 @@ function guardarInfoCli() {
         success: function(data){
             //data=data.split("#");
             $('#resuldIngreso').html(data);
+            if (data.trim() === "1") {
+                alert("Usuario creado correctamente.");
+                cerrarPopup();
+                location.reload(); // Recargar la página después de aceptar el alert
+            } else {
+                alert("Error en los datos insertados. Inténtalo de nuevo.");
+            }
         }
     });
     

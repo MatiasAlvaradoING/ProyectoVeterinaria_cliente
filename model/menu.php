@@ -8,6 +8,9 @@ if (!isset($_SESSION['username'])) {
 }
 
 $username = $_SESSION['username'];
+$nick = $_SESSION['nick'];
+$tipo_acceso = $_SESSION['tipo_acceso'];
+$nomrbe = $_SESSION['nombre'];
 ?>
 
 <!DOCTYPE html>
@@ -207,17 +210,21 @@ $username = $_SESSION['username'];
                 <img src="../img/avatar.png" alt="">
                 <div class="info-usuario">
                     <div class="nombre-email">
-                        <span class="nombre"><?php echo $username;?></span>
+                        <span class="nombre"><?php echo $nick;?></span>
                         <form action="../logout.php" method="POST">
                             <button type="submit" class="btn">Cerrar Sesión</button>
                         </form>
                         <!-- Botón para abrir el popup -->
-                         <button type="button" class="popup-button-open" onclick="abrirPopup()">Crear Cliente</button>
+                        <?php
+                        if($tipo_acceso == 'T'){
+                            ?>
+                                <button type="button" class="popup-button-open" onclick="abrirPopup()">Crear Cliente</button>    
+                            <?php
+                        }
+                        ?>
                             <!-- Overlay del popup -->
                         <div class="popup-overlay" id="popupOverlay" onclick="cerrarPopup()">
                             <div class="popup-container" onclick="event.stopPropagation()">
-                                <h2>Crear Cliente</h2>
-                                <form>
                                     <input type="text" id="rut" class="popup-input" placeholder="rut" required>
                                     <input type="text" id="nombre" class="popup-input" placeholder="Nombre" required>
                                     <input type="text" id="gmail" class="popup-input" placeholder="Correo">
@@ -229,9 +236,7 @@ $username = $_SESSION['username'];
                                         <option value="V">Cliente</option>
                                         <option value="T">Veterinario</option>
                                     </select>
-
                                     <button type="submit" class="popup-button-save" onclick="guardarInfoCli()">Guardar</button>
-                                </form>
                                 <button class="popup-button-close" onclick="cerrarPopup()">Cancelar</button>
                             </div>
                         </div>
@@ -248,7 +253,7 @@ $username = $_SESSION['username'];
                     </div>
                 </div>
             </div>
-            <div id="resuldIngreso"></div>
+            <div id="resuldIngreso" style="display:none"></div>
         </div>
     </div>
     <!-- 

@@ -19,7 +19,7 @@
             <h2 class="title">Iniciar Sesión</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input id="username" name="username" type="text" placeholder="Username" />
+              <input id="username" name="username" type="text" placeholder="RUT sin punto ni digito verificador" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
