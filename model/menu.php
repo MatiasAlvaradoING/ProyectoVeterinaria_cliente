@@ -225,7 +225,8 @@ $nomrbe = $_SESSION['nombre'];
                             <!-- Overlay del popup -->
                         <div class="popup-overlay" id="popupOverlay" onclick="cerrarPopup()">
                             <div class="popup-container" onclick="event.stopPropagation()">
-                                    <input type="text" id="rut" class="popup-input" placeholder="rut" required>
+                                    <h3>Registrar Cliente</h3>
+                                    <input type="text" id="rut" class="popup-input" placeholder="Rut sin guion ni digito verificador" required>
                                     <input type="text" id="nombre" class="popup-input" placeholder="Nombre" required>
                                     <input type="text" id="gmail" class="popup-input" placeholder="Correo">
                                     <input type="text" id="direccion" class="popup-input" placeholder="Dirección" required>
@@ -332,40 +333,42 @@ $nomrbe = $_SESSION['nombre'];
                         <tr>
                             <th>RUT</th>
                             <th>Nombre</th>
-                            <th>Direccion</th>
+                            <!--<th>Direccion</th>-->
                             <th>Telefono</th>
                             <th>Correo</th>
+                            <th>Mascota</th>
+                            <th>Editar datos</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td data-label="Rut">19.254.755-5</td>
-                            <td data-label="Nombre">Matias</td>
-                            <td data-label="Direccion">Los Marcos</td>
-                            <td data-label="Telefono">+569 45852615</td>
-                            <td data-label="Correo">mdiaz@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Rut">15.447.811-3</td>
-                            <td data-label="Nombre">Jorge</td>
-                            <td data-label="Direccion">Los Marcos</td>
-                            <td data-label="Telefono">+569 45852615</td>
-                            <td data-label="Correo">mdiaz@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Rut">19.850.627-3</td>
-                            <td data-label="Nombre">Daisy</td>
-                            <td data-label="Direccion">Los Marcos</td>
-                            <td data-label="Telefono">+569 45852615</td>
-                            <td data-label="Correo">mdiaz@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Rut">20.700.003-6</td>
-                            <td data-label="Nombre">Luis</td>
-                            <td data-label="Direccion">Los Marcos</td>
-                            <td data-label="Telefono">+569 45852615</td>
-                            <td data-label="Correo">mdiaz@gmail.com</td>
-                        </tr>
+                        <?php
+                            include("conexion.php");
+                            $sql="SELECT dbo.FORMATO_RUT(RUT) AS RUT,
+                                        NOMBRE,
+                                        DIRECCION,
+                                        '(56) '+TELEFONO AS TELEFONO,
+                                        CORREO,
+                                        RUT,
+                                        TIPO_ACCESO
+                                FROM USUARIO";
+
+                            $res=odbc_exec($cid,$sql);
+                            while(odbc_fetch_row($res)){
+                                
+
+                                ?>
+                                    <tr>
+                                        <td data-label="Rut"><?php echo odbc_result($res,'RUT')?></td>
+                                        <td data-label="Nombre"><?php echo odbc_result($res,'NOMBRE')?></td>
+                                        <!-- <td data-label="Direccion"><?php echo odbc_result($res,'DIRECCION')?></td>-->
+                                        <td data-label="Telefono"><?php echo odbc_result($res,'TELEFONO')?></td>
+                                        <td data-label="Correo"><?php echo odbc_result($res,'CORREO')?></td>
+                                        <td data-label="Correo">mascota</td>
+                                        <td data-label="Correo">editar datos</td>
+                                    </tr>
+                                <?php
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
