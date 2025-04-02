@@ -11,6 +11,8 @@ $username = $_SESSION['username'];
 $nick = $_SESSION['nick'];
 $tipo_acceso = $_SESSION['tipo_acceso'];
 $nomrbe = $_SESSION['nombre'];
+$rut = $_SESSION['rut'];
+
 ?>
 
 <!DOCTYPE html>
@@ -62,37 +64,37 @@ $nomrbe = $_SESSION['nombre'];
                     
                 </li>   
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarMascota()">
+                    <a href="javascript:void(0);" onclick="mostrarMascota('<?php echo $rut;?>','<?php echo $tipo_acceso;?>')">
                         <img src="../img/mascota.png"  width="30" height="30" >
                         <span><?php echo " .- "?>Información Mascotas</span>
                     </a>
                 </li>             
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarAnti()">
+                    <a href="javascript:void(0);" onclick="mostrarAnti('<?php echo $rut;?>','<?php echo $tipo_acceso;?>')">
                         <img src="../img/capsulas.png"   width="30" height="30" >
                         <span><?php echo " .- "?>Antiparasitarios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarVacuna()">
+                    <a href="javascript:void(0);" onclick="mostrarVacuna('<?php echo $rut;?>','<?php echo $tipo_acceso;?>')">
                         <img src="../img/jeringa.png"  width="30" height="30" >
                         <span><?php echo " .- "?>Vacunas</span>
                     </a>
                 </li> 
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarCita()">
+                    <a href="javascript:void(0);" onclick="mostrarCita('<?php echo $rut;?>','<?php echo $tipo_acceso;?>')">
                         <img src="../img/cita.png"  width="30" height="30" >
                         <span><?php echo " .- "?>Citas</span>
                     </a>
                 </li>  
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarConsulta()">
+                    <a href="javascript:void(0);" onclick="mostrarConsulta('<?php echo $rut;?>','<?php echo $tipo_acceso;?>')">
                         <img src="../img/consulta.png"  width="30" height="30" >
                         <span><?php echo " .- "?>Consultas</span>
                     </a>
                 </li> 
                 <li>
-                    <a href="javascript:void(0);" onclick="mostrarEmergencia()">
+                    <a href="javascript:void(0);" onclick="mostrarEmergencia('<?php echo $rut;?>','<?php echo $tipo_acceso;?>')">
                         <img src="../img/ambulancia.png"  width="30" height="30" >
                         <span><?php echo " .- "?>Emergencias</span>
                     </a>
@@ -255,6 +257,7 @@ $nomrbe = $_SESSION['nombre'];
                 </div>
             </div>
             <div id="resuldIngreso" style="display:none"></div>
+            <div id="resuldEdit" style="display:none"></div>
         </div>
     </div>
     <!-- 
@@ -270,6 +273,9 @@ $nomrbe = $_SESSION['nombre'];
             <div class="title-container">
                 <h1 >Información Personal</h1>
             </div>
+                <?php
+                    if($tipo_acceso == 'T'){
+                    ?>                             
                 <br>
                 <div class="search-bar">
                     <input type="text" id="search" placeholder="Buscar...">
@@ -307,12 +313,7 @@ $nomrbe = $_SESSION['nombre'];
                         position: relative;
                         left: 38%;
                     }
-                    .table-container {
-                        max-height: 200px; /* Muestra solo 4 filas */
-                        overflow-y: auto;
-                        border: 1px solid #ddd;
-                        border-radius: 5px;
-                    }
+                    
                     table {
                         width: 100%;
                         border-collapse: collapse;
@@ -336,67 +337,215 @@ $nomrbe = $_SESSION['nombre'];
                             <!--<th>Direccion</th>-->
                             <th>Telefono</th>
                             <th>Correo</th>
-                            <th>Mascota</th>
-                            <th>Editar datos</th>
+                            <?php
+                                if($tipo_acceso == 'T'){
+                                ?>         
+                                    <th>Mascota</th>
+                                    <th>Editar datos</th>
+                                <?php
+                                }
+                            ?>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             include("conexion.php");
-                            $sql="SELECT dbo.FORMATO_RUT(RUT) AS RUT,
-                                        NOMBRE,
-                                        DIRECCION,
-                                        '(56) '+TELEFONO AS TELEFONO,
-                                        CORREO,
-                                        RUT,
-                                        TIPO_ACCESO
-                                FROM USUARIO";
+                            $sql="SELECT dbo.FORMATO_RUT(RUT) AS RUT_2,
+                                            RUT,
+                                            NOMBRE,
+                                            DIRECCION,
+                                            '(56) '+TELEFONO AS TELEFONO1,
+                                            TELEFONO,
+                                            CORREO,   
+                                            USUARIO,
+                                            CLAVE,
+                                            TIPO_ACCESO
+                                    FROM USUARIO
+                                    WHERE NOT TIPO_ACCESO = 'T'";
 
                             $res=odbc_exec($cid,$sql);
                             while(odbc_fetch_row($res)){
-                                
-
                                 ?>
                                     <tr>
-                                        <td data-label="Rut"><?php echo odbc_result($res,'RUT')?></td>
+                                        <td data-label="Rut"><?php echo odbc_result($res,'RUT_2')?></td>
                                         <td data-label="Nombre"><?php echo odbc_result($res,'NOMBRE')?></td>
                                         <!-- <td data-label="Direccion"><?php echo odbc_result($res,'DIRECCION')?></td>-->
-                                        <td data-label="Telefono"><?php echo odbc_result($res,'TELEFONO')?></td>
+                                        <td data-label="Telefono"><?php echo odbc_result($res,'TELEFONO1')?></td>
                                         <td data-label="Correo"><?php echo odbc_result($res,'CORREO')?></td>
-                                        <td data-label="Correo">mascota</td>
-                                        <td data-label="Correo">editar datos</td>
+                                        <?php
+                                            if($tipo_acceso == 'T'){
+                                                ?>
+                                                    <td data-label="mascota"><a href="javascript:void(0);" onclick="mostrarMascota('<?php echo odbc_result($res,'RUT');?>','<?php echo odbc_result($res,'TIPO_ACCESO');?>')"><img src="../img/cuidado-de-mascotas.png" width="30" height="30" /></a></td>
+
+
+                                                    <td data-label="editar"><a href="javascript:void(0);" onclick="abrirPopupEditar('<?php echo odbc_result($res,'RUT');?>', 
+                                                                                                                            '<?php echo odbc_result($res,'NOMBRE');?>', 
+                                                                                                                            '<?php echo odbc_result($res,'DIRECCION');?>', 
+                                                                                                                            '<?php echo odbc_result($res,'TELEFONO');?>', 
+                                                                                                                            '<?php echo odbc_result($res,'CORREO');?>', 
+                                                                                                                            '<?php echo odbc_result($res,'USUARIO');?>', 
+                                                                                                                            '<?php echo odbc_result($res,'CLAVE');?>', 
+                                                                                                                            '<?php echo odbc_result($res,'TIPO_ACCESO');?>')"><img src="../img/carpeta.png" width="30" height="30" /></a></td>      
+                                                <?php
+                                            }
+                                        ?>
                                     </tr>
                                 <?php
                             }
                         ?>
                     </tbody>
                 </table>
+                <?php
+                    }
+                ?>
+                <style>
+                    /* Fondo oscuro semi-transparente */
+                    #popup-editar {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.7);
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    
+
+                    /* Botón de cerrar */
+                    .cerrar-popup {
+                        position: absolute;
+                        top: 10px;
+                        right: 15px;
+                        font-size: 20px;
+                        cursor: pointer;
+                        color: #fff;
+                    }
+
+                    /* Estilo para los inputs */
+                    .popup-input {
+                        width: 100%;
+                        padding: 10px;
+                        margin: 10px 0;
+                        border-radius: 5px;
+                        border: 1px solid #555;
+                        background: #333;
+                        color: #fff;
+                    }
+
+                    /* Botón de guardar */
+                    .popup-btn {
+                        background: #28a745;
+                        color: white;
+                        border: none;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: 100%;
+                        font-size: 16px;
+                        margin-top: 10px;
+                    }
+
+                    /* Hover en botones */
+                    .popup-btn:hover {
+                        background: #218838;
+                    }
+                </style>
+                <div id="popup-editar">
+                    <div class="popup-contenido">
+                        <span class="cerrar-popup" onclick="cerrarPopupEditar()">&times;</span>
+                        <h2>Editar Usuario</h2>
+                        
+                        <input type="text" id="edit-rut" class="popup-input" placeholder="RUT" readonly>
+                        <input type="text" id="edit-nombre" class="popup-input" placeholder="Nombre">
+                        <input type="text" id="edit-direccion" class="popup-input" placeholder="Dirección">
+                        <input type="text" id="edit-telefono" class="popup-input" placeholder="Teléfono">
+                        <input type="email" id="edit-correo" class="popup-input" placeholder="Correo">
+                        <input type="text" id="edit-usuario" class="popup-input" placeholder="Usuario">
+                        <input type="password" id="edit-clave" class="popup-input" placeholder="Clave">
+                        <select class="popup-input" id="edit-tipoacceso" required>
+                            <option value="V">Cliente</option>
+                            <option value="T">Veterinario</option>
+                        </select>
+
+                        <button class="popup-btn" onclick="guardarDatos()">Guardar Cambios</button>
+                    </div>
+                </div>
+                <script>
+                    function abrirPopupEditar(rut, nombre, direccion, telefono, correo, usuario, clave, tipoacceso) {
+                        document.getElementById("edit-rut").value = rut;
+                        document.getElementById("edit-nombre").value = nombre;
+                        document.getElementById("edit-direccion").value = direccion;
+                        document.getElementById("edit-telefono").value = telefono;
+                        document.getElementById("edit-correo").value = correo;
+                        document.getElementById("edit-usuario").value = usuario;
+                        document.getElementById("edit-clave").value = clave;
+                        document.getElementById("edit-tipoacceso").value = tipoacceso;
+
+                        document.getElementById("popup-editar").style.display = "flex";
+                    }
+
+                    function cerrarPopupEditar() {
+                        document.getElementById("popup-editar").style.display = "none";
+                    }
+                </script>
+
             </div>
         </div>
         <br>
-        <div class="container1">
-            <div class="responsive-div">
-                <table class="styled-table">
-                    <tr>
-                        <td><a href="javascript:void(0);" onclick="mostrarMascota()">MASCOTAS<br><br><img src="../img/mascota.png"  width="50" height="50" ></a></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="responsive-div2">
-                <table class="styled-table">
-                    <tr>
-                        <td><a href="javascript:void(0);" onclick="mostrarAnti()">ANTIPARASITARIOS<br><br><img src="../img/capsulas.png"  width="50" height="50" ></a></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="responsive-div3">
-                <table class="styled-table">
-                    <tr>
-                        <td><a href="javascript:void(0);" onclick="mostrarVacuna()">VACUNAS <br><br><img src="../img/jeringa.png"  width="50" height="50" ></a></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+
+        <?php
+            if($tipo_acceso == 'V'){
+            ?>         
+                <div class="container1">
+                    <div class="responsive-div">
+                        <table class="styled-table">
+                            <tr>
+                                <td><a href="javascript:void(0);" onclick="mostrarMascota('<?php echo $rut;?>','V')">MASCOTAS<br><br><img src="../img/mascota.png"  width="50" height="50" ></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="responsive-div2">
+                        <table class="styled-table">
+                            <tr>
+                                <td><a href="javascript:void(0);" onclick="mostrarAnti('<?php echo $rut;?>','V')">ANTIPARASITARIOS<br><br><img src="../img/capsulas.png"  width="50" height="50" ></a></td>
+                            </tr>
+                        </table>
+                    </div> 
+                    <div class="responsive-div3">
+                        <table class="styled-table">
+                            <tr>
+                                <td><a href="javascript:void(0);" onclick="mostrarVacuna('<?php echo $rut;?>','V')">VACUNAS<br><br><img src="../img/jeringa.png"  width="50" height="50" ></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="responsive-div3">
+                        <table class="styled-table">
+                            <tr>
+                                <td><a href="javascript:void(0);" onclick="mostrarCita('<?php echo $rut;?>','V')">CITA<br><br><img src="../img/cita.png"  width="50" height="50" ></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="responsive-div3">
+                        <table class="styled-table">
+                            <tr>
+                                <td><a href="javascript:void(0);" onclick="mostrarConsulta('<?php echo $rut;?>','V')">CONSULTA<br><br><img src="../img/consulta.png"  width="50" height="50" ></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="responsive-div3">
+                        <table class="styled-table">
+                            <tr>
+                                <td><a href="javascript:void(0);" onclick="mostrarEmergencia('<?php echo $rut;?>','V')">EMERGENCIA<br><br><img src="../img/ambulancia.png"  width="50" height="50" ></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            <?php
+            }
+        ?>
     </div>
     <div id="detalleMascota">
         <!--detalle de la informacion de cada mascota -->

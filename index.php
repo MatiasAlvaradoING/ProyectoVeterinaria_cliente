@@ -33,7 +33,7 @@
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
-            <h1>Veterinaria</h1>
+            <h1>Veterinaria Happy Paws</h1>
             <h3>
               Cuidamos a tu mascota como si fuera nuestra.
               Salud y bienestar para tu peludo amigo, ¡ven a conocernos!

@@ -297,7 +297,26 @@ main{
 main.min-main{
     margin-left: 80px;
 }
+.table-container {
+    max-height: 400px; /* Muestra solo 4 filas */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
 
+
+/* Contenedor del popup */
+.popup-contenido {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    left: 5%;
+}
 
 
 /*------------------> Responsive*/
@@ -336,6 +355,25 @@ main.min-main{
     }
     main.min-main{
         margin-left: 0;
+    }
+    .table-container {
+        max-height: 600px; /* Muestra solo 4 filas */
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    /* Contenedor del popup */
+    .popup-contenido {
+        background: #222;
+        padding: 20px;
+        border-radius: 10px;
+        width: 350px;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        left: 0%;
     }
     
 }

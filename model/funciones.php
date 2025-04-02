@@ -97,6 +97,8 @@ if($accion=="mostrarContacto"){
     <?php	
 }
 if($accion=="mostrarMascota"){
+    $rut = $_POST['rut'];
+    $acceso = $_POST['acceso'];
 	?>
     <img src="../img/familia.png" class="image" >
     <div class="container2">
@@ -106,22 +108,45 @@ if($accion=="mostrarMascota"){
         </div>
         <div class="content">
             <div class="sidebar">
-                <div class="item">
-                    <a href="javascript:void(0);" onclick="detMascota()">
-                        <div style="display: flex; align-items: center;">
-                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
-                            <strong style="font-size: 18px;">Thanos</strong>
-                        </div>
-                    </a>
-                </div>
-                
-                <!-- Más bloques pueden ser agregados aquí -->
+                <?php 
+                    include("conexion.php");
+                    if($acceso == 'V'){
+                        $consultaMascota="SELECT * FROM MASCOTA WHERE RUT_DUENO = '".$rut."'";    
+                    }else{
+                        $consultaMascota="SELECT * FROM MASCOTA";    
+                    }
+                    
+                    $resMasc=odbc_exec($cid,$consultaMascota);
+
+                    while (odbc_fetch_row($resMasc)){
+                        $id = odbc_result($resMasc,'ID_MASCOTA');
+                    
+                        $nombreMas = odbc_result($resMasc,'NOMBRE');
+                        $edad = odbc_result($resMasc,'EDAD');
+                        $raza = odbc_result($resMasc,'RAZA');
+                        $sexo = odbc_result($resMasc,'SEXO');
+                        ?>
+                            
+                                <div class="item">
+                                    <a href="javascript:void(0);" onclick="detMascota('<?php echo $id;?>')">
+                                        <div style="display: flex; align-items: center;">
+                                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
+                                            <strong style="font-size: 18px;"><?php echo $nombreMas;?></strong>
+                                        </div>
+                                    </a>
+                                </div>
+                            
+                        <?php
+                    }
+                ?>
             </div>
             <div class="main-content">
                 <div class="info-box" id="detMascotaP">
                     <!-- informacion mascota -->
                 </div>
             </div>
+
+            
         </div>
     </div>
     <script>
@@ -363,7 +388,10 @@ if($accion=="mostrarEmergencia"){
 
 
 if($accion=="detMascota"){
-	?>
+	
+    $idMascota = $_POST['idMascota'];
+    ?>
+
     <div class="tabla-detalle">
         <div class="fila">
             <div class="columna">
@@ -771,5 +799,36 @@ if ($accion == "guardarInfoCli") {
     }
 
 }
+
+if ($accion == "guardarDatos") {
+    
+    $rut = $_POST['rut1'];
+    $usuario = $_POST['usuario1'];
+    $contrasena = $_POST['contrasena1'];
+    $telefono = $_POST['telefono1'];
+    $direccion = $_POST['direccion1'];
+    $correo = $_POST['correo1'];
+    $nombre = $_POST['nombre1'];
+    $tipoUsuario = $_POST['tipoUsuario1'];
+
+    include("conexion.php");
+    $updateUser="UPDATE USUARIO SET RUT = '$rut',
+					NOMBRE = '$nombre', 
+					DIRECCION = '$direccion', 
+					TELEFONO = '$telefono', 
+					CORREO = '$correo',
+					USUARIO = '$usuario',
+					CLAVE = '$contrasena',
+					TIPO_ACCESO = '$tipoUsuario'
+            WHERE RUT = '$rut'";
+    $resinsUpdate=odbc_exec($cid,$updateUser);
+
+    if ($resinsUpdate) {
+        echo "1";  // Inserción exitosa
+    } else {
+        echo "2";  // Error en la inserción
+    }
+
+} 
 
 ?>

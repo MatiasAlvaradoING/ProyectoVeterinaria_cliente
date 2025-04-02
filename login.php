@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['nick'] = $row['USUARIO']; // Guardar NICK en sesión
             $_SESSION['tipo_acceso'] = $row['TIPO_ACCESO']; // Guardar tipo de acceso
             $_SESSION['nombre'] = $row['NOMBRE']; // Guardar NOMBRE de acceso
+            $_SESSION['rut'] = $row['RUT']; // Guardar NOMBRE de acceso
 
             // Redirigir al menú
             header("Location: model/menu.php");

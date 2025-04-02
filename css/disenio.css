@@ -109,7 +109,6 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     overflow-x: auto;
-    display: none;
 }
 
 .responsive-div3 {
@@ -121,7 +120,6 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     overflow-x: auto;
-    display: none;
 }
 
 .styled-table {

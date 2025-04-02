@@ -1,7 +1,14 @@
+
+/*
 function mostrarMascota() {
      
 	setTimeout(function() {
 		$("#divMadre").fadeOut(500);
+        $(".responsive-div").fadeOut(500);
+        $(".responsive-div2").fadeOut(500);
+        $(".responsive-div3").fadeOut(500);
+        $(".container1").fadeOut(500);
+        
 	},100);
 
     var accion="mostrarMascota";
@@ -22,6 +29,7 @@ function mostrarMascota() {
 
 	
 }
+    */
 function mostrarAnti() {
      
 	setTimeout(function() {
@@ -32,6 +40,10 @@ function mostrarAnti() {
 		$("#detalleConsulta").fadeOut(500);
 		$("#detalleEmergencia").fadeOut(500);
 		$("#detalleCita").fadeOut(500);
+        $(".responsive-div").fadeOut(500);
+        $(".responsive-div2").fadeOut(500);
+        $(".responsive-div3").fadeOut(500);
+        $(".container1").fadeOut(500);
 	},100);
 
     var accion="mostrarAnti";
@@ -62,6 +74,10 @@ function mostrarVacuna() {
 		$("#detalleConsulta").fadeOut(500);
 		$("#detalleEmergencia").fadeOut(500);
 		$("#detalleCita").fadeOut(500);
+        $(".responsive-div").fadeOut(500);
+        $(".responsive-div2").fadeOut(500);
+        $(".responsive-div3").fadeOut(500);
+        $(".container1").fadeOut(500);
 	},100);
 
     var accion="mostrarVacuna";
@@ -88,6 +104,10 @@ function mostrarCita() {
 		$("#detalleConsulta").fadeOut(500);
 		$("#detalleEmergencia").fadeOut(500);
 		$("#detalleVacuna").fadeOut(500);
+        $(".responsive-div").fadeOut(500);
+        $(".responsive-div2").fadeOut(500);
+        $(".responsive-div3").fadeOut(500);
+        $(".container1").fadeOut(500);
 		
 	},100);
 
@@ -115,6 +135,10 @@ function mostrarConsulta() {
 		$("#detalleCita").fadeOut(500);
 		$("#detalleEmergencia").fadeOut(500);
 		$("#detalleVacuna").fadeOut(500);
+        $(".responsive-div").fadeOut(500);
+        $(".responsive-div2").fadeOut(500);
+        $(".responsive-div3").fadeOut(500);
+        $(".container1").fadeOut(500);
 	},100);
 
     var accion="mostrarConsulta";
@@ -141,6 +165,11 @@ function mostrarEmergencia() {
 		$("#detalleCita").fadeOut(500);
 		$("#detalleConsulta").fadeOut(500);
 		$("#detalleVacuna").fadeOut(500);
+        $(".responsive-div").fadeOut(500);
+        $(".responsive-div2").fadeOut(500);
+        $(".responsive-div3").fadeOut(500);
+        $(".container1").fadeOut(500);
+        
 	},100);
 
     var accion="mostrarEmergencia";
@@ -168,6 +197,10 @@ function mostrarContacto() {
 		$("#detalleConsulta").fadeOut(500);
 		$("#detalleEmergencia").fadeOut(500);
 		$("#detalleCita").fadeOut(500);
+        $(".responsive-div").fadeOut(500);
+        $(".responsive-div2").fadeOut(500);
+        $(".responsive-div3").fadeOut(500);
+        $(".container1").fadeOut(500);
 	},100);
 	
     var accion="mostrarContacto";
@@ -188,7 +221,8 @@ function mostrarContacto() {
 
 	
 }
-function mostrarMascota() {
+function mostrarMascota(rut,acceso) {
+    
 	setTimeout(function() {
 		$("#divMadre").fadeOut(500);
 		$("#detalleVacuna").fadeOut(500);
@@ -197,13 +231,17 @@ function mostrarMascota() {
 		$("#detalleConsulta").fadeOut(500);
 		$("#detalleEmergencia").fadeOut(500);
 		$("#detalleCita").fadeOut(500);
+        $(".responsive-div").fadeOut(500);
+        $(".responsive-div2").fadeOut(500);
+        $(".responsive-div3").fadeOut(500);
+        $(".container1").fadeOut(500);
 	},100);
 
     var accion="mostrarMascota";
     $.ajax({
         type: 'POST',
         url: "funciones.php",
-        data: $('#form').serialize()+"&accion="+accion,
+        data: $('#form').serialize()+"&accion="+accion+"&rut="+rut+"&acceso="+acceso,
         success: function(data){
             //data=data.split("#");
             setTimeout(function() {
@@ -233,6 +271,10 @@ function home(){
 	
 	setTimeout(function() {
 		$("#divMadre").fadeIn(500);
+        $(".responsive-div").fadeIn(500);
+        $(".responsive-div2").fadeIn(500);
+        $(".responsive-div3").fadeIn(500);
+        $(".container1").fadeIn(500);
 	},700);
 }
 function volverMenu0(){
@@ -242,6 +284,10 @@ function volverMenu0(){
 	
 	setTimeout(function() {
 		$("#divMadre").fadeIn(500);
+        $(".responsive-div").fadeIn(500);
+        $(".responsive-div2").fadeIn(500);
+        $(".responsive-div3").fadeIn(500);
+        $(".container1").fadeIn(500);
 	},700);
 }
 function volverMenu(){
@@ -251,6 +297,10 @@ function volverMenu(){
 	
 	setTimeout(function() {
 		$("#divMadre").fadeIn(500);
+        $(".responsive-div").fadeIn(500);
+        $(".responsive-div2").fadeIn(500);
+        $(".responsive-div3").fadeIn(500);
+        $(".container1").fadeIn(500);
 	},700);
 }
 function volverMenu2(){
@@ -260,6 +310,10 @@ function volverMenu2(){
 	
 	setTimeout(function() {
 		$("#divMadre").fadeIn(500);
+        $(".responsive-div").fadeIn(500);
+        $(".responsive-div2").fadeIn(500);
+        $(".responsive-div3").fadeIn(500);
+        $(".container1").fadeIn(500);
 	},700);
 }
 function volverMenu3(){
@@ -269,6 +323,10 @@ function volverMenu3(){
 	
 	setTimeout(function() {
 		$("#divMadre").fadeIn(500);
+        $(".responsive-div").fadeIn(500);
+        $(".responsive-div2").fadeIn(500);
+        $(".responsive-div3").fadeIn(500);
+        $(".container1").fadeIn(500);
 	},700);
 }
 function volverMenu4(){
@@ -278,6 +336,10 @@ function volverMenu4(){
 	
 	setTimeout(function() {
 		$("#divMadre").fadeIn(500);
+        $(".responsive-div").fadeIn(500);
+        $(".responsive-div2").fadeIn(500);
+        $(".responsive-div3").fadeIn(500);
+        $(".container1").fadeIn(500);
 	},700);
 }
 function volverMenu5(){
@@ -287,6 +349,10 @@ function volverMenu5(){
 	
 	setTimeout(function() {
 		$("#divMadre").fadeIn(500);
+        $(".responsive-div").fadeIn(500);
+        $(".responsive-div2").fadeIn(500);
+        $(".responsive-div3").fadeIn(500);
+        $(".container1").fadeIn(500);
 	},700);
 }
 function volverMenu6(){
@@ -296,6 +362,10 @@ function volverMenu6(){
 	
 	setTimeout(function() {
 		$("#divMadre").fadeIn(500);
+        $(".responsive-div").fadeIn(500);
+        $(".responsive-div2").fadeIn(500);
+        $(".responsive-div3").fadeIn(500);
+        $(".container1").fadeIn(500);
 	},700);
 }
 
@@ -303,7 +373,7 @@ function volverMenu6(){
 
 
 
-function detMascota() {
+function detMascota(idMascota) {
 	setTimeout(function() {
 		$("#detMascotaP").fadeOut(500);
 	},100);
@@ -312,7 +382,7 @@ function detMascota() {
     $.ajax({
         type: 'POST',
         url: "funciones.php",
-        data: $('#form').serialize()+"&accion="+accion,
+        data: $('#form').serialize()+"&accion="+accion+"&idMascota="+idMascota,
         success: function(data){
             //data=data.split("#");
             setTimeout(function() {
@@ -629,4 +699,67 @@ function guardarInfoCli() {
     return false;
     	
 }
+function guardarDatos() {
 
+    let rut1 = document.getElementById("edit-rut").value;
+    let nombre1 = document.getElementById("edit-nombre").value;
+    let correo1 = document.getElementById("edit-correo").value;
+    let direccion1 = document.getElementById("edit-direccion").value;
+    let telefono1 = document.getElementById("edit-telefono").value;
+    let usuario1 = document.getElementById("edit-usuario").value;
+    let contrasena1 = document.getElementById("edit-clave").value;
+    let tipoUsuario1 = document.getElementById("edit-tipoacceso").value; // Rescatar el valor (T o V)
+
+    if (rut1 === "" || nombre1 === "" || correo1 === "" || direccion1 === "" ||
+        telefono1 === "" || usuario1 === "" || contrasena1 === "" || tipoUsuario1 === "") {
+        alert("Por favor, complete todos los campos antes de continuar.");
+        return false;
+    }
+
+    // validacion de numero de telefono, no ingresar mas o menos de 9 numeros
+    let telefonoRegex = /^[0-9]{9,9}$/;
+    if (!telefonoRegex.test(telefono1)) {
+        alert("El teléfono ingresado no es válido. Debe contener 9 numeros.");
+        return false;
+    }
+
+    /*
+    console.log("Datos del Cliente:");
+    console.log("Nombre:", nombre1);
+    console.log("Correo:", correo1);
+    console.log("Dirección:", direccion1);
+    console.log("Teléfono:", telefono1);
+    console.log("Usuario:", usuario1);
+    console.log("Contraseña:", contrasena1);
+    console.log("Tipo de Usuario:", tipoUsuario1 === "T" ? "Veterinario" : "Cliente");
+    */
+
+    var accion="guardarDatos";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion+
+                                    "&nombre1="+nombre1+
+                                    "&correo1="+correo1+
+                                    "&direccion1="+direccion1+
+                                    "&telefono1="+telefono1+
+                                    "&usuario1="+usuario1+
+                                    "&contrasena1="+contrasena1+
+                                    "&tipoUsuario1="+tipoUsuario1+
+                                    "&rut1="+rut1,
+        success: function(data){
+            //data=data.split("#");
+            $('#resuldEdit').html(data);
+            if (data.trim() === "1") {
+                alert("Datos actualizados correctamente.");
+                cerrarPopup();
+                location.reload(); // Recargar la página después de aceptar el alert
+            } else {
+                alert("Error en los datos insertados. Inténtalo de nuevo.");
+            }
+        }
+    });
+    
+    return false;
+    	
+}
