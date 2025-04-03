@@ -126,15 +126,19 @@ if($accion=="mostrarMascota"){
                         $raza = odbc_result($resMasc,'RAZA');
                         $sexo = odbc_result($resMasc,'SEXO');
                         ?>
-                            
-                                <div class="item">
-                                    <a href="javascript:void(0);" onclick="detMascota('<?php echo $id;?>')">
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px;  margin-right: 10px;">
-                                            <strong style="font-size: 18px;"><?php echo $nombreMas;?></strong>
-                                        </div>
-                                    </a>
-                                </div>
+                            <div class="item" style="display: flex; gap: 15px;">
+                                <a href="javascript:void(0);" onclick="detMascota('<?php echo $id;?>')">
+                                    <div style="display: flex; align-items: center;">
+                                        <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px; margin-right: 10px;">
+                                        <strong style="font-size: 18px;"><?php echo $nombreMas;?></strong>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0);" onclick="detMascota('<?php echo $id;?>')">
+                                    <div style="display: flex; margin-left: 220%;">
+                                        <img src="../img/lista.png" alt="Foto de Thanos" style="width: 40px; height: 40px; margin-right: 10px;">
+                                    </div>
+                                </a>
+                            </div>
                             
                         <?php
                     }
@@ -390,6 +394,30 @@ if($accion=="mostrarEmergencia"){
 if($accion=="detMascota"){
 	
     $idMascota = $_POST['idMascota'];
+    include("conexion.php");
+    $datosMascota="SELECT 
+                        DATEDIFF(YEAR, FECHA_NACIMIENTO, GETDATE()) - 
+                            CASE 
+                                WHEN (MONTH(FECHA_NACIMIENTO) > MONTH(GETDATE())) 
+                                    OR (MONTH(FECHA_NACIMIENTO) = MONTH(GETDATE()) AND DAY(FECHA_NACIMIENTO) > DAY(GETDATE())) 
+                                THEN 1 
+                                ELSE 0 
+                            END AS EDAD_ANIO,
+                            DATEDIFF(MONTH, FECHA_NACIMIENTO, GETDATE()) % 12 AS EDAD_MESES,
+                            *
+                    FROM MASCOTA
+                    WHERE ID_MASCOTA = '".$idMascota."'";    
+    $resMasc=odbc_exec($cid,$datosMascota);
+
+    $edad_anio = odbc_result($resMasc,'EDAD_ANIO');
+    $edad_mes = odbc_result($resMasc,'EDAD_MESES');
+    $rutDuenio = odbc_result($resMasc,'RUT_DUENO');
+    $raza = odbc_result($resMasc,'RAZA');
+    $sexo = odbc_result($resMasc,'SEXO');
+    $peso = odbc_result($resMasc,'PESO');
+    $fecha_na = odbc_result($resMasc,'FECHA_NACIMIENTO');
+    $fecha_in = odbc_result($resMasc,'FECHA_INGRESO');
+
     ?>
 
     <div class="tabla-detalle">
@@ -397,13 +425,25 @@ if($accion=="detMascota"){
             <div class="columna">
                 <div class="detalle">
                     <strong>Edad</strong><br>
-                    1 año
+                    <?php
+
+                        if ($edad_anio > 0) {
+                            echo $edad_anio . " " . ($edad_anio == 1 ? "año" : "años");
+                            if ($edad_mes > 0) {
+                                echo " con " . $edad_mes . " " . ($edad_mes == 1 ? "mes" : "meses");
+                            }
+                        } else {
+                            echo $edad_mes . " " . ($edad_mes == 1 ? "mes" : "meses");
+                        }
+                    ?>
+                    
+                
                 </div>
             </div>
             <div class="columna">
                 <div class="detalle">
                     <strong>Raza</strong><br>
-                    mestizo 
+                    <?php echo $raza;?>
                 </div>
             </div>
         </div>
@@ -411,13 +451,21 @@ if($accion=="detMascota"){
             <div class="columna">
                 <div class="detalle">
                     <strong>Sexo</strong><br>
-                    Masculino
+                    <?php
+                    if($sexo == 'M'){
+                        ?>Masculino<?php 
+                    }else{
+                        ?>Femenino<?php 
+                    }
+                    
+                    ?>
+                    
                 </div>
             </div>
             <div class="columna">
                 <div class="detalle">
                     <strong>Peso</strong><br>
-                    9.5
+                    <?php echo $peso;?>
                 </div>
             </div>
         </div>
@@ -425,13 +473,13 @@ if($accion=="detMascota"){
             <div class="columna">
                 <div class="detalle">
                     <strong>Fecha de nacimiento:</strong><br>
-                    01/01/2024
+                    <?php echo $fecha_na;?>
                 </div>
             </div>
             <div class="columna">
                 <div class="detalle">
                     <strong>Fecha de ingreso:</strong><br>
-                    01/01/2023
+                    <?php echo $fecha_in;?>
                 </div>
             </div>
         </div>
@@ -775,6 +823,7 @@ if($accion=="detMascotaEmergencia"){
 }
 
 
+
 // insert, update y delete.
 
 if ($accion == "guardarInfoCli") {
@@ -831,4 +880,26 @@ if ($accion == "guardarDatos") {
 
 } 
 
+if ($accion == "grabarMascotaCli") {
+    
+    $new_nombre = $_POST['new_nombre'];
+    $new_raza = $_POST['new_raza'];
+    $new_tipo = $_POST['new_tipo'];
+    $new_sexo = $_POST['new_sexo'];
+    $new_kilo = $_POST['new_kilo'];
+    $new_fechaNacimiento = $_POST['new_fechaNacimiento'];
+    $rutCli = $_POST['rutCli'];
+
+    include("conexion.php");
+    $insMas="INSERT INTO MASCOTA (RUT_DUENO, NOMBRE, RAZA, SEXO, PESO, FECHA_NACIMIENTO, FECHA_INGRESO,TIPO_MASCOTA)
+            VALUES ('".$rutCli."', '".$new_nombre."', '".$new_raza."', '".$new_sexo."',".$new_kilo.", '".$new_fechaNacimiento."', GETDATE(),'".$new_tipo."')";
+    $resMas=odbc_exec($cid,$insMas);
+
+    if ($resMas) {
+        echo "1";  // Inserción exitosa
+    } else {
+        echo "2";  // Error en la inserción
+    }
+
+}
 ?>

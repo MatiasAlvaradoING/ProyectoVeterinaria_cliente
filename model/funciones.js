@@ -763,3 +763,38 @@ function guardarDatos() {
     return false;
     	
 }
+function grabarMascotaCli() {
+    var new_nombre = document.getElementById('new-nombre').value;
+    var new_raza = document.getElementById('new-raza').value;
+    var new_tipo = document.getElementById('new-tipo').value;
+    var new_sexo = document.getElementById('new-sexo').value;
+    var new_kilo = parseFloat(document.getElementById('new-kilo').value);
+    var new_fechaNacimiento = document.getElementById('new-fechaNacimiento').value;
+    var rutCli = document.getElementById('rutCli').value;
+    
+    var accion="grabarMascotaCli";
+    $.ajax({
+        type: 'POST',
+        url: "funciones.php",
+        data: $('#form').serialize()+"&accion="+accion+
+                                    "&new_nombre="+new_nombre+
+                                    "&new_raza="+new_raza+
+                                    "&new_tipo="+new_tipo+
+                                    "&new_sexo="+new_sexo+
+                                    "&new_kilo="+new_kilo+
+                                    "&new_fechaNacimiento="+new_fechaNacimiento+
+                                    "&rutCli="+rutCli,
+        success: function(data){
+            //data=data.split("#");
+            $('#resultIngreso').html(data);
+            if (data.trim() === "1") {
+                alert("Mascota grabada correctamente.");
+                cerrarPopup3();
+                //location.reload(); // Recargar la página después de aceptar el alert
+            } else {
+                alert("Error en los datos insertados. Inténtalo de nuevo.");
+            }
+        }
+    });   
+    return false;
+}

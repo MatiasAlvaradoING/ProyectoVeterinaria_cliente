@@ -228,7 +228,7 @@ $rut = $_SESSION['rut'];
                         <div class="popup-overlay" id="popupOverlay" onclick="cerrarPopup()">
                             <div class="popup-container" onclick="event.stopPropagation()">
                                     <h3>Registrar Cliente</h3>
-                                    <input type="text" id="rut" class="popup-input" placeholder="Rut sin guion ni digito verificador" required>
+                                    <input type="text" id="rut" class="popup-input" placeholder="Sin punto, ni guion" required>
                                     <input type="text" id="nombre" class="popup-input" placeholder="Nombre" required>
                                     <input type="text" id="gmail" class="popup-input" placeholder="Correo">
                                     <input type="text" id="direccion" class="popup-input" placeholder="Dirección" required>
@@ -258,6 +258,7 @@ $rut = $_SESSION['rut'];
             </div>
             <div id="resuldIngreso" style="display:none"></div>
             <div id="resuldEdit" style="display:none"></div>
+            <div id="resultIngreso" style="display:none"></div>
         </div>
     </div>
     <!-- 
@@ -341,7 +342,8 @@ $rut = $_SESSION['rut'];
                                 if($tipo_acceso == 'T'){
                                 ?>         
                                     <th>Mascota</th>
-                                    <th>Editar datos</th>
+                                    <th>Añadir Mascota</th>
+                                    <th>Editar mis datos</th>
                                 <?php
                                 }
                             ?>
@@ -377,6 +379,7 @@ $rut = $_SESSION['rut'];
                                                 ?>
                                                     <td data-label="mascota"><a href="javascript:void(0);" onclick="mostrarMascota('<?php echo odbc_result($res,'RUT');?>','<?php echo odbc_result($res,'TIPO_ACCESO');?>')"><img src="../img/cuidado-de-mascotas.png" width="30" height="30" /></a></td>
 
+                                                    <td data-label="mascota"><a href="javascript:void(0);" onclick="agregarMascota('<?php echo odbc_result($res,'RUT');?>')"><img src="../img/agragarmascota.png" width="30" height="30" /></a></td>
 
                                                     <td data-label="editar"><a href="javascript:void(0);" onclick="abrirPopupEditar('<?php echo odbc_result($res,'RUT');?>', 
                                                                                                                             '<?php echo odbc_result($res,'NOMBRE');?>', 
@@ -395,10 +398,86 @@ $rut = $_SESSION['rut'];
                         ?>
                     </tbody>
                 </table>
+                <div id="popupMascota">
+                    <div id="popupMascotaContent">
+                        <button class="cerrarPopup" onclick="cerrarPopup3()">X</button>
+                        <h2>Registrar Mascota</h2>
+                        <div class="formMascota">
+                            <input type="text" id="new-nombre" placeholder="Nombre" required>
+                            <input type="text" id="new-raza" placeholder="Raza" required>
+                            <input type="text" id="new-tipo" placeholder="Tipo de mascota" required>
+                            <select required id="new-sexo">
+                                <option value="">Seleccione Sexo</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                            </select>
+                            <input type="number" id="new-kilo" step="0.01" placeholder="Peso (kg)" required>
+                            <input type="date" id="new-fechaNacimiento" placeholder="Fecha de nacimiento" required>
+                            <input type="hidden" name="rutCli" id="rutCli" value="">
+                            <button type="submit" onclick="grabarMascotaCli()">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function agregarMascota(rutCli) {
+                        document.getElementById('popupMascota').style.display = 'flex';
+                        document.getElementById('rutCli').value=rutCli;
+                    }
+                    function cerrarPopup3() {
+                        document.getElementById('popupMascota').style.display = 'none';
+                    }
+                </script>
                 <?php
                     }
                 ?>
                 <style>
+                    /* Estilos para el fondo del popup */
+                    #popupMascota {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.7);
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    /* Contenedor del popup */
+                    #popupMascotaContent {
+                        background: white;
+                        padding: 20px;
+                        border-radius: 10px;
+                        width: 300px;
+                        text-align: center;
+                    }
+                    /* Botón para cerrar */
+                    .cerrarPopup {
+                        background: red;
+                        color: white;
+                        border: none;
+                        padding: 5px 10px;
+                        cursor: pointer;
+                        margin-bottom: 10px;
+                        border-radius: 5px;
+                    }
+                    /* Estilos para el formulario */
+                    .formMascota input, .formMascota select {
+                        width: 100%;
+                        padding: 8px;
+                        margin: 5px 0;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                    }
+                    .formMascota button {
+                        background: green;
+                        color: white;
+                        border: none;
+                        padding: 10px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        margin-top: 10px;
+                    }
                     /* Fondo oscuro semi-transparente */
                     #popup-editar {
                         display: none;
